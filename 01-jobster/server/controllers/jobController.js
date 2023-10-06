@@ -58,6 +58,9 @@ const getSingleJob = async (req, res) => {
 }
 
 const createJob = async (req, res) => {
+    if (req.user.isTestUser) {
+        throw new CustomError.BadRequestError('Test User can read only')
+    }
     const job = await Job.create({
         ...req.body,
         createdBy: req.user.id,
@@ -66,6 +69,9 @@ const createJob = async (req, res) => {
 }
 
 const updateJob = async (req, res) => {
+    if (req.user.isTestUser) {
+        throw new CustomError.BadRequestError('Test User can read only')
+    }
     const {
         body: { company, position },
         params: { id: jobId },
@@ -95,6 +101,9 @@ const updateJob = async (req, res) => {
 }
 
 const deleteJob = async (req, res) => {
+    if (req.user.isTestUser) {
+        throw new CustomError.BadRequestError('Test User can read only')
+    }
     const job = await Job.findByIdAndRemove({
         _id: req.params.id,
         createdBy: req.user.id,

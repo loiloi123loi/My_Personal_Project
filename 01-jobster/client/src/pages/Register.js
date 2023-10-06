@@ -1,56 +1,55 @@
-import { useEffect, useState } from 'react';
-import Wrapper from '../assets/wrappers/RegisterPage';
-import { Logo, FormRow } from '../components';
-import { toast } from 'react-toastify';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { loginUser, registerUser } from '../features/user/userSlice';
+import { useEffect, useState } from 'react'
+import Wrapper from '../assets/wrappers/RegisterPage'
+import { Logo, FormRow } from '../components'
+import { toast } from 'react-toastify'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { loginUser, registerUser } from '../features/user/userSlice'
 
 const initialState = {
     name: '',
     email: '',
     password: '',
     isMember: true,
-};
+}
 
 function Register() {
-    const [values, setValues] = useState(initialState);
-    const { user, isLoading } = useSelector((store) => store.user);
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const [values, setValues] = useState(initialState)
+    const { user, isLoading } = useSelector((store) => store.user)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
-        const name = e.target.name;
-        const value = e.target.value;
-        setValues({ ...values, [name]: value });
-    };
+        const name = e.target.name
+        const value = e.target.value
+        setValues({ ...values, [name]: value })
+    }
 
     const toggleMember = () => {
-        setValues({ ...values, isMember: !values.isMember });
-    };
+        setValues({ ...values, isMember: !values.isMember })
+    }
 
     const onSubmit = (e) => {
-        e.preventDefault();
-        const { name, email, password, isMember } = values;
+        e.preventDefault()
+        const { name, email, password, isMember } = values
         if (!email || !password || (!isMember && !name)) {
-            toast.error('Please fill out of all fields');
-            return;
+            toast.error('Please fill out of all fields')
+            return
         }
         if (isMember) {
-            dispatch(loginUser({ email, password }));
-            return;
+            dispatch(loginUser({ email, password }))
+            return
         }
-        dispatch(registerUser({ name, email, password }));
-    };
+        dispatch(registerUser({ name, email, password }))
+    }
 
     useEffect(() => {
         if (user) {
             setTimeout(() => {
-                navigate('/');
-            }, 2000);
+                navigate('/')
+            }, 2000)
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user]);
+    }, [user])
 
     return (
         <Wrapper className="full-page">
@@ -88,6 +87,14 @@ function Register() {
                     type="button"
                     className="btn btn-block btn-hipster"
                     disabled={isLoading}
+                    onClick={() => {
+                        dispatch(
+                            loginUser({
+                                email: 'testUser@test.com',
+                                password: 'secret',
+                            })
+                        )
+                    }}
                 >
                     {isLoading ? 'Loading...' : 'demo app'}
                 </button>
@@ -99,13 +106,14 @@ function Register() {
                         type="button"
                         className="member-btn"
                         onClick={toggleMember}
+                        disabled={isLoading}
                     >
                         {values.isMember ? 'Register' : 'Login'}
                     </button>
                 </p>
             </form>
         </Wrapper>
-    );
+    )
 }
 
-export default Register;
+export default Register

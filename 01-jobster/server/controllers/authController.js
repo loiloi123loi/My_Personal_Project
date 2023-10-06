@@ -47,6 +47,9 @@ const login = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
+    if (req.user.isTestUser) {
+        throw new CustomError.BadRequestError('Test User can read only')
+    }
     const { name, email } = req.body
     if (!name || !email) {
         throw new CustomError.BadRequestError('Please provide all values')

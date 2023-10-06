@@ -11,6 +11,9 @@ const connectDB = require('./configs/db/connect')
 // rest package
 const morgan = require('morgan')
 const cors = require('cors')
+const helmet = require('helmet')
+const xss = require('xss-clean')
+const path = require('path')
 
 // middleware
 const notFoundMiddlware = require('./middleware/not-found')
@@ -21,11 +24,16 @@ const authenticationMiddleware = require('./middleware/authentication')
 const authRouter = require('./routes/authRouter')
 const jobsRouter = require('./routes/jobRouter')
 
-app.use(express.json())
-// app.use(express.urlencoded())
+app.set('trust proxy', 1)
 
+app.use(express.static(path.resolve(__dirname, './client/build')))
 // app.use(morgan('combined'))
+app.use(helmet())
+app.use(xss())
 app.use(cors())
+
+app.use(express.json())
+app.use(express.urlencoded())
 
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/jobs', authenticationMiddleware, jobsRouter)

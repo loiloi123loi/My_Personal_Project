@@ -6,7 +6,6 @@ const errorHandler = (err, req, res, next) => {
         message: err.message || 'Something was wrong, try later',
     }
     console.log(customError)
-    console.log(err.code)
     if (err.name === 'ValidationError') {
         customError.message = Object.values(err.errors)
             .map((item) => item.message)
