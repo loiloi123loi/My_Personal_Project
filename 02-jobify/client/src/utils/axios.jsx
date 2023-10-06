@@ -3,7 +3,7 @@ import { getUserFromLocalStorage } from './localStorage'
 import { clearStore } from '../features/user/userSlice'
 
 const customFetch = axios.create({
-    baseURL: 'http://localhost:5000/api/v1',
+    baseURL: 'https://jobify-api-29p7.onrender.com/api/v1',
     withCredentials: true,
 })
 
