@@ -15,14 +15,14 @@ const attachCookiesToResponse = ({ res, user, refreshToken }) => {
     const longerExp = 30 * 24 * 60 * 60 * 1000
     res.cookie('accessToken', accessTokenJWT, {
         httpOnly: true,
-        secure: false, //process.env.NODE_ENV === 'production',
+        secure: process.env.NODE_ENV === 'production',
         signed: true,
         expires: new Date(Date.now() + oneDay),
         sameSite: 'none',
     })
     res.cookie('refreshToken', refreshTokenJWT, {
         httpOnly: true,
-        secure: false, //process.env.NODE_ENV === 'production',
+        secure: process.env.NODE_ENV === 'production',
         signed: true,
         expires: new Date(Date.now() + longerExp),
         sameSite: 'none',
