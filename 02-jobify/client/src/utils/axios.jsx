@@ -2,10 +2,14 @@ import axios from 'axios'
 import { getUserFromLocalStorage } from './localStorage'
 import { clearStore } from '../features/user/userSlice'
 
-const customFetch = axios.create({
-    baseURL: 'https://jobify-api-29p7.onrender.com/api/v1',
-    withCredentials: true,
-})
+import { wrapper } from 'axios-cookiejar-support'
+
+const customFetch = wrapper(
+    axios.create({
+        baseURL: 'https://jobify-api-29p7.onrender.com/api/v1/',
+        withCredentials: true,
+    })
+)
 
 customFetch.interceptors.request.use((config) => {
     const user = getUserFromLocalStorage()
