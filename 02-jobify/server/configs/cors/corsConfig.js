@@ -1,5 +1,5 @@
 module.exports = {
-    origin: ['http://localhost:5173'],
+    origin: ['https://jobifybyloidz.netlify.app'],
     credentials: true,
     exposedHeaders: ['set-cookie'],
 }
