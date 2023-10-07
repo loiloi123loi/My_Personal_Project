@@ -15,6 +15,8 @@ import {
     getThemeFromLocalStorage,
     setThemeToLocalStorage,
 } from './utils/localStorage'
+import ProtectedAdminRou from './pages/Admin/ProtectedAdminRou'
+import Admin from './pages/Admin/Admin'
 
 const App = () => {
     const handleChange = (valueChange) => {
@@ -42,6 +44,14 @@ const App = () => {
                     <Route path="all-jobs" element={<AllJobs />} />
                     <Route path="stats" element={<Stats />} />
                     <Route path="edit-job/:id" element={<EditJob />} />
+                    <Route
+                        path="admin"
+                        element={
+                            <ProtectedAdminRou>
+                                <Admin />
+                            </ProtectedAdminRou>
+                        }
+                    />
                 </Route>
                 <Route path="/" element={<Landing />} />
                 <Route path="register" element={<Register />} />

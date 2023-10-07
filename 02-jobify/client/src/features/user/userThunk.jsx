@@ -52,3 +52,12 @@ export const clearStoreThunk = async (url, thunkAPI) => {
         return Promise.reject()
     }
 }
+
+export const getInfoAdminThunk = async (_, thunkAPI) => {
+    try {
+        const resp = await customFetch.get('/admin/')
+        return resp.data
+    } catch (err) {
+        return checkForUnauthorizedResponse(err, thunkAPI)
+    }
+}

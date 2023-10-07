@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import {
     clearStoreThunk,
     currentUserThunk,
+    getInfoAdminThunk,
     loginUserThunk,
     registerUserThunk,
     updateUserThunk,
@@ -13,6 +14,7 @@ const initialState = {
     isSidebarOpen: false,
     user: null,
     isLogin: null,
+    data: {},
 }
 
 export const registerUser = createAsyncThunk(
@@ -49,6 +51,8 @@ export const clearStore = createAsyncThunk(
         return clearStoreThunk('/auth/logout', thunkAPI)
     }
 )
+
+export const getInfoAdmin = createAsyncThunk('admin/getInfo', getInfoAdminThunk)
 
 const userSlice = createSlice({
     name: 'user',
@@ -130,6 +134,14 @@ const userSlice = createSlice({
             state.isLoading = false
         },
         [clearStore.rejected]: (state, { payload }) => {
+            state.isLoading = false
+            toast.success(payload)
+        },
+        [getInfoAdmin.fulfilled]: (state, { payload }) => {
+            state.isLoading = false
+            state.data = payload
+        },
+        [getInfoAdmin.rejected]: (state, { payload }) => {
             state.isLoading = false
             toast.success(payload)
         },

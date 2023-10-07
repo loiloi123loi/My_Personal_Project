@@ -28,6 +28,7 @@ const mongoSanitize = require('express-mongo-sanitize')
 // routes
 const authRouter = require('./routes/authRouter')
 const jobsRouter = require('./routes/jobsRouter')
+const adminRouter = require('./routes/adminRouter')
 
 // middleware
 const notFoundMiddleware = require('./middleware/not-found-middleware')
@@ -49,6 +50,7 @@ cloudinary.config(cloudinaryConfig)
 
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/jobs', authenticationMiddleware, jobsRouter)
+app.use('/api/v1/admin', authenticationMiddleware, adminRouter)
 
 app.use(notFoundMiddleware)
 app.use(errorHandleMiddleware)
