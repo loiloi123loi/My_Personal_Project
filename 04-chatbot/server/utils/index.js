@@ -5,6 +5,7 @@ const createTokenUser = require('./createTokenUser')
 const { createJWT, isTokenValid, attachCookiesToResponse } = require('./jwt')
 const createHash = require('./createHash')
 const passport = require('./passport')
+const checkPermission = require('./checkPermission')
 
 module.exports = {
     sendEmail,
@@ -15,5 +16,6 @@ module.exports = {
     isTokenValid,
     attachCookiesToResponse,
     createHash,
+    checkPermission,
     passport,
 }

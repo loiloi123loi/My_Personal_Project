@@ -70,11 +70,7 @@ const callPassportGoogle = () => {
     passport.authenticate('google', ['profile', 'email'])
 }
 
-const registerGoogle = async (req, res) => {
-    if (req.user) {
-    }
-    res.status(StatusCodes.CREATED).json({ msg: 'Register successfully' })
-}
+const registerGoogle = async (req, res) => {}
 
 const registerFacebook = async (req, res) => {}
 
