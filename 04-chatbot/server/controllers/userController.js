@@ -1,11 +1,7 @@
 const { StatusCodes } = require('http-status-codes')
 const CustomError = require('../errors')
 const { User } = require('../models')
-const {
-    checkPermission,
-    attachCookiesToResponse,
-    createTokenUser,
-} = require('../utils')
+const { attachCookiesToResponse } = require('../utils')
 
 const getAllUsers = async (req, res) => {}
 
