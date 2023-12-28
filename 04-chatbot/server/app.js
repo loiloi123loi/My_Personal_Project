@@ -6,24 +6,31 @@ const app = express()
 // database
 const { connect } = require('./configs/db/connect')
 
+// config
+const { sessionConfig } = require('./configs')
+
 // package
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const { passport } = require('./utils')
+const session = require('express-session')
 
 // middleware
 const { notFoundMid, errorHandlerMid } = require('./middlewares')
 
 // router
-const { authRouter } = require('./routes')
+const { authRouter, userRouter } = require('./routes')
 
 app.use(cors())
 app.use(express.json())
 app.use(cookieParser(process.env.JWT_SECRET))
+app.set('trust proxy', 1)
+app.use(session(sessionConfig))
 app.use(passport.initialize())
 app.use(passport.session())
 
 app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/user', userRouter)
 
 app.use(notFoundMid)
 app.use(errorHandlerMid)
