@@ -6,7 +6,8 @@ import { wrapper } from 'axios-cookiejar-support'
 
 const customFetch = wrapper(
     axios.create({
-        baseURL: 'https://jobify-api-29p7.onrender.com/api/v1/',
+        // baseURL: 'http://localhost:5000/api/v1/',
+        baseURL: process.env.BACK_URL,
         withCredentials: true,
     })
 )

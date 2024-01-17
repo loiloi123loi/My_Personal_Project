@@ -31,7 +31,7 @@ const register = async (req, res) => {
         role,
         verifycationToken,
     })
-    const origin = 'http://localhost:3000'
+    const origin = process.env.FRONT_URL
     await sendVerifycationEmail({
         name: user.username,
         email: user.email,
@@ -118,7 +118,7 @@ const forgotPassword = async (req, res) => {
     const user = await User.findOne({ email })
     if (user) {
         const passwordToken = crypto.randomBytes(70).toString('hex')
-        const origin = 'http://localhost:3000'
+        const origin = process.env.FRONT_URL
         await sendResetPasswordEmail({
             name: user.username,
             email: user.email,
