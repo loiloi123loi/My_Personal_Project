@@ -130,6 +130,7 @@ const User = sequelize.define('User', {
     },
     role: { type: DataTypes.STRING, defaultValue: 'user' },
     avatar: { type: DataTypes.STRING },
+    avatar_public_id: { type: DataTypes.STRING },
     isVerified: { type: DataTypes.BOOLEAN, defaultValue: false },
     verified: { type: DataTypes.DATE },
     verifycationToken: { type: DataTypes.STRING },

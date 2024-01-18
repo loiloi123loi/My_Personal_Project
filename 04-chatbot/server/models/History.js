@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize')
 const { sequelize } = require('../configs/db/connect')
 const Chat = require('./Chat')
+const User = require('./User')
 
 const History = sequelize.define('History', {
     content: {
@@ -17,6 +18,9 @@ const History = sequelize.define('History', {
             model: Chat,
             key: 'id',
         },
+    },
+    who: {
+        type: DataTypes.STRING,
     },
 })
 

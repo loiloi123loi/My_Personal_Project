@@ -11,7 +11,7 @@ const connect = () => {
             console.log(`Connect database success`)
         })
         .catch((err) => {
-            throw err
+            console.log(`Connect DB fail`)
         })
 }
 

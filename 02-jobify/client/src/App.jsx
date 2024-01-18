@@ -2,7 +2,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { Error, Landing, Login, Register, ProtectedRoute } from './pages/'
+import {
+    Error,
+    Landing,
+    Login,
+    Register,
+    ProtectedRoute,
+    VerifyEmail,
+} from './pages/'
 import {
     SharedLayout,
     AddJob,
@@ -54,6 +61,9 @@ const App = () => {
                     />
                 </Route>
                 <Route path="/" element={<Landing />} />
+                <Route path="user">
+                    <Route path="verify-email" element={<VerifyEmail />} />
+                </Route>
                 <Route path="register" element={<Register />} />
                 <Route path="login" element={<Login />} />
                 <Route path="*" element={<Error />} />

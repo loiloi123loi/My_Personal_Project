@@ -49,6 +49,9 @@ const verifyEmail = async (req, res) => {
     if (!user) {
         throw new CustomError.NotFoundError(`Verification failed`)
     }
+    if (user.isVerified) {
+        throw new CustomError.NotFoundError(`Your email is verified`)
+    }
     if (user.verifycationToken !== verifycationToken) {
         throw new CustomError.NotFoundError(`Verification failed`)
     }

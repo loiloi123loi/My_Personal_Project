@@ -6,6 +6,7 @@ const { createJWT, isTokenValid, attachCookiesToResponse } = require('./jwt')
 const createHash = require('./createHash')
 const passport = require('./passport')
 const checkPermission = require('./checkPermission')
+const getRspGenerative = require('./getGenerativeResp')
 
 module.exports = {
     sendEmail,
@@ -18,4 +19,5 @@ module.exports = {
     createHash,
     checkPermission,
     passport,
+    getRspGenerative,
 }

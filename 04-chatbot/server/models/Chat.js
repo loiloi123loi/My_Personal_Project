@@ -7,7 +7,7 @@ const Chat = sequelize.define('Chat', {
         type: DataTypes.STRING,
         defaultValue: 'New Chat',
         validate: {
-            len: [0],
+            len: [0, 50],
         },
     },
     userId: {

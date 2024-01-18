@@ -7,19 +7,34 @@ const app = express()
 const { connect } = require('./configs/db/connect')
 
 // config
-const { sessionConfig } = require('./configs')
+const {
+    sessionConfig,
+    cloudinaryConfig,
+    fileUploadConfig,
+} = require('./configs')
 
 // package
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const { passport } = require('./utils')
 const session = require('express-session')
+const fileupload = require('express-fileupload')
+const cloudinary = require('cloudinary').v2
 
 // middleware
-const { notFoundMid, errorHandlerMid } = require('./middlewares')
+const {
+    notFoundMid,
+    errorHandlerMid,
+    authenticationMid,
+} = require('./middlewares')
 
 // router
-const { authRouter, userRouter } = require('./routes')
+const {
+    authRouter,
+    userRouter,
+    chatRouter,
+    historyRouter,
+} = require('./routes')
 
 app.use(cors())
 app.use(express.json())
@@ -28,36 +43,16 @@ app.set('trust proxy', 1)
 app.use(session(sessionConfig))
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(fileupload(fileUploadConfig))
+cloudinary.config(cloudinaryConfig)
 
 app.use('/api/v1/auth', authRouter)
-app.use('/api/v1/user', userRouter)
+app.use('/api/v1/user', authenticationMid, userRouter)
+app.use('/api/v1/chat', authenticationMid, chatRouter)
+app.use('/api/v1/history', authenticationMid, historyRouter)
 
 app.use(notFoundMid)
 app.use(errorHandlerMid)
-
-// const {
-//     GoogleGenerativeAI,
-//     HarmBlockThreshold,
-//     HarmCategory,
-// } = require('@google/generative-ai')
-
-// const genAI = new GoogleGenerativeAI(process.env.API_KEY_AI2)
-
-// const safetySettings = [
-//     {
-//         category: HarmCategory.HARM_CATEGORY_HARASSMENT,
-//         threshold: HarmBlockThreshold.BLOCK_NONE,
-//     },
-// ]
-
-// const model = genAI.getGenerativeModel({
-//     model: 'models/gemini-pro',
-//     safetySettings,
-// })
-// const result = await model.generateContent(prompt)
-// const response = await result.response
-// const text = response.text()
-// res.json({ message: text })
 
 const port = process.env.PORT || 5555
 const start = async () => {

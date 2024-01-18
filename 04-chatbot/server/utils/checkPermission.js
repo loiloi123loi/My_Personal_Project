@@ -1,11 +1,9 @@
 const CustomError = require('../errors')
 
-const checkPermission = async (requestUser, resourceUserId) => {
+const checkPermission = (requestUser, resourceUserId) => {
     if (requestUser.role === 'admin') return
-    if (requestUser.role === resourceUserId.toString()) return
-    throw new CustomError.UnAuthorizedError(
-        'Not authorized to access this route'
-    )
+    if (requestUser.id === resourceUserId.toString()) return
+    throw new CustomError.UnAuthorizedError('Chưa xác thực để tiếp tục')
 }
 
 module.exports = checkPermission

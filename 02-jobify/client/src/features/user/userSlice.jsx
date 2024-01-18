@@ -6,6 +6,7 @@ import {
     loginUserThunk,
     registerUserThunk,
     updateUserThunk,
+    verifyEmail,
 } from './userThunk'
 import { toast } from 'react-toastify'
 
@@ -49,6 +50,13 @@ export const clearStore = createAsyncThunk(
     'user/clearStore',
     async (_, thunkAPI) => {
         return clearStoreThunk('/auth/logout', thunkAPI)
+    }
+)
+
+export const verifyEmailUser = createAsyncThunk(
+    'user/verify',
+    async ({ data, callback }, thunkAPI) => {
+        return verifyEmail('/auth/verify-email', data, callback, thunkAPI)
     }
 )
 
@@ -143,7 +151,18 @@ const userSlice = createSlice({
         },
         [getInfoAdmin.rejected]: (state, { payload }) => {
             state.isLoading = false
-            toast.success(payload)
+            toast.error(payload)
+        },
+        [verifyEmailUser.pending]: (state) => {
+            state.isLoading = true
+        },
+        [verifyEmailUser.fulfilled]: (state, { payload }) => {
+            state.isLoading = false
+            toast.success(payload.msg)
+        },
+        [verifyEmailUser.rejected]: (state, { payload }) => {
+            state.isLoading = false
+            toast.error(payload)
         },
     },
 })

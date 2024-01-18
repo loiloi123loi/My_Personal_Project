@@ -3,6 +3,17 @@ import { clearAllJobsState } from '../allJobs/allJobSlice'
 import { clearValues } from '../job/jobSlice'
 import { logoutUser } from './userSlice'
 
+export const verifyEmail = async (url, data, callback, thunkAPI) => {
+    try {
+        const resp = await customFetch.post(url, data)
+        return resp.data
+    } catch (err) {
+        return thunkAPI.rejectWithValue(err.response.data.msg)
+    } finally {
+        thunkAPI.dispatch(callback)
+    }
+}
+
 export const registerUserThunk = async (url, user, thunkAPI) => {
     try {
         const resp = await customFetch.post(url, user)
