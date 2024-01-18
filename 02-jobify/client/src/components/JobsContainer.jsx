@@ -4,7 +4,7 @@ import Job from './Job'
 import PageBtnContainer from './PageBtnContainer'
 
 const JobsContainer = () => {
-    const { jobs, totalJobs, numOfPages } = useSelector(
+    const { jobs, totalJobs, numOfPages, page } = useSelector(
         (store) => store.allJobs
     )
 
@@ -19,7 +19,8 @@ const JobsContainer = () => {
     return (
         <Wrapper>
             <h5>
-                {totalJobs} job{jobs.length > 1 && 's'} found
+                {totalJobs} job{jobs.length > 1 && 's'} found ({numOfPages}{' '}
+                page)
             </h5>
             <div className="jobs">
                 {jobs.map((job) => {

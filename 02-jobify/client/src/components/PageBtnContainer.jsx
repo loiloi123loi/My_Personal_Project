@@ -33,7 +33,18 @@ const PageBtnContainer = () => {
                 prev
             </button>
             <div className="btn-container">
-                {pages.map((pageNumber) => {
+                {pages.map((index, key) => {
+                    let pageNumber = pages[key]
+                    const padding = 3
+                    if (pageNumber >= 3 && pageNumber < page - padding) return
+                    if (pageNumber > page + padding) return
+                    let textLabel = ''
+                    if (
+                        (pageNumber === page - padding ||
+                            pageNumber === page + padding) &&
+                        pageNumber > 2
+                    )
+                        textLabel = '...'
                     return (
                         <button
                             type="button"
@@ -45,7 +56,7 @@ const PageBtnContainer = () => {
                             }
                             onClick={() => dispatch(changePage(pageNumber))}
                         >
-                            {pageNumber}
+                            {textLabel ? textLabel : pageNumber}
                         </button>
                     )
                 })}
