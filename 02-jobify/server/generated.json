@@ -1,0 +1,1804 @@
+{
+    "jobs": [
+        {
+            "position": "UX/UI Designer",
+            "company": "SamSung",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2014-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "DevOps Engineer",
+            "company": "VNG",
+            "jobLocation": "Hà Nội",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2022-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Backend Developer",
+            "company": "GMO-Z",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2019-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Cloud Solutions Architect",
+            "company": "LG EDV",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2017-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Cybersecurity Specialist",
+            "company": "VTC",
+            "jobLocation": "Quy Nhơn",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2012-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "DevOps Engineer",
+            "company": "KMS",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2011-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Database Administrator",
+            "company": "FPT",
+            "jobLocation": "Đà Nẵng",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2015-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Backend Developer",
+            "company": "FPT",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2020-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Mobile App Developer",
+            "company": "GMO-Z",
+            "jobLocation": "Quy Nhơn",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2021-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Data Scientist",
+            "company": "VTC",
+            "jobLocation": "Hà Nội",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2014-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Data Scientist",
+            "company": "Vinfact",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "full-time",
+            "createdAt": "2015-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Security Analyst",
+            "company": "GMO-Z",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "full-time",
+            "createdAt": "2014-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "IT Project Manager",
+            "company": "VNG",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2012-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Quality Assurance Engineer",
+            "company": "FPT",
+            "jobLocation": "Quy Nhơn",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2011-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Backend Developer",
+            "company": "VTC",
+            "jobLocation": "Đà Nẵng",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2014-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "UX/UI Designer",
+            "company": "RIKKEISOFT",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2019-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Software Engineer",
+            "company": "SUN",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2022-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Backend Developer",
+            "company": "GMO-Z",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2020-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Backend Developer",
+            "company": "Vinfact",
+            "jobLocation": "Hà Nội",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2023-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Security Analyst",
+            "company": "VTC",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2022-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Blockchain Developer",
+            "company": "RIKKEISOFT",
+            "jobLocation": "Quy Nhơn",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2013-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "UX/UI Designer",
+            "company": "VNG",
+            "jobLocation": "Quy Nhơn",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2019-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Frontend Developer",
+            "company": "SamSung",
+            "jobLocation": "Quy Nhơn",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2023-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "DevOps Engineer",
+            "company": "SamSung",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2018-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Quality Assurance Engineer",
+            "company": "SUN",
+            "jobLocation": "Hà Nội",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2023-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Quality Assurance Engineer",
+            "company": "LG EDV",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2021-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Backend Developer",
+            "company": "SamSung",
+            "jobLocation": "Hà Nội",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2020-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Cybersecurity Specialist",
+            "company": "SUN",
+            "jobLocation": "Đà Nẵng",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2019-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Security Analyst",
+            "company": "KMS",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2014-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Quality Assurance Engineer",
+            "company": "DAC",
+            "jobLocation": "Quy Nhơn",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2021-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Frontend Developer",
+            "company": "FPT",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2022-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "UX/UI Designer",
+            "company": "RIKKEISOFT",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "declined",
+            "jobType": "full-time",
+            "createdAt": "2023-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Mobile App Developer",
+            "company": "VNG",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2011-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "IT Project Manager",
+            "company": "KMS",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2021-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Technical Support Specialist",
+            "company": "DAC",
+            "jobLocation": "Đà Nẵng",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2022-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Data Scientist",
+            "company": "VTC",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2014-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Quality Assurance Engineer",
+            "company": "VNG",
+            "jobLocation": "Quy Nhơn",
+            "status": "declined",
+            "jobType": "full-time",
+            "createdAt": "2020-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Technical Support Specialist",
+            "company": "VNG",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2023-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Business Analyst (IT)",
+            "company": "FPT",
+            "jobLocation": "Đà Nẵng",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2021-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Database Administrator",
+            "company": "Vinfact",
+            "jobLocation": "Quy Nhơn",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2023-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "IT Project Manager",
+            "company": "LG EDV",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2022-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Business Analyst (IT)",
+            "company": "GMO-Z",
+            "jobLocation": "Đà Nẵng",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2012-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Full Stack Developer",
+            "company": "SUN",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2012-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Full Stack Developer",
+            "company": "SamSung",
+            "jobLocation": "Hà Nội",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2018-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Quality Assurance Engineer",
+            "company": "KMS",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2015-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "DevOps Engineer",
+            "company": "Vinfact",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2016-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Blockchain Developer",
+            "company": "DAC",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2021-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Business Analyst (IT)",
+            "company": "RIKKEISOFT",
+            "jobLocation": "Hà Nội",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2016-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Blockchain Developer",
+            "company": "VTC",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2020-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Quality Assurance Engineer",
+            "company": "GMO-Z",
+            "jobLocation": "Bình Định",
+            "status": "declined",
+            "jobType": "full-time",
+            "createdAt": "2014-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Full Stack Developer",
+            "company": "Vinfact",
+            "jobLocation": "Đà Nẵng",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2016-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Data Scientist",
+            "company": "GMO-Z",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2021-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Quality Assurance Engineer",
+            "company": "RIKKEISOFT",
+            "jobLocation": "Quy Nhơn",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2014-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Database Administrator",
+            "company": "VNG",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2019-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Cybersecurity Specialist",
+            "company": "KMS",
+            "jobLocation": "Bình Định",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2015-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Software Engineer",
+            "company": "DAC",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2018-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Technical Support Specialist",
+            "company": "SUN",
+            "jobLocation": "Đà Nẵng",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2020-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Network Engineer",
+            "company": "GMO-Z",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2020-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Cloud Solutions Architect",
+            "company": "VNG",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2019-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "DevOps Engineer",
+            "company": "LG EDV",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2015-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Database Administrator",
+            "company": "SamSung",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2018-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "UX/UI Designer",
+            "company": "SamSung",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2014-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Business Analyst (IT)",
+            "company": "VNG",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2020-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Cybersecurity Specialist",
+            "company": "SUN",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2021-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "System Administrator",
+            "company": "DAC",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2019-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Business Analyst (IT)",
+            "company": "Vinfact",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2016-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Data Scientist",
+            "company": "LG EDV",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "full-time",
+            "createdAt": "2018-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Cybersecurity Specialist",
+            "company": "Vinfact",
+            "jobLocation": "Quy Nhơn",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2015-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Database Administrator",
+            "company": "Vinfact",
+            "jobLocation": "Đà Nẵng",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2013-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Frontend Developer",
+            "company": "Vinfact",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2023-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "IT Project Manager",
+            "company": "FPT",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2023-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "DevOps Engineer",
+            "company": "LG EDV",
+            "jobLocation": "Đà Nẵng",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2019-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "UX/UI Designer",
+            "company": "SUN",
+            "jobLocation": "Đà Nẵng",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2022-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Database Administrator",
+            "company": "Vinfact",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2011-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Quality Assurance Engineer",
+            "company": "SUN",
+            "jobLocation": "Hà Nội",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2022-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Business Analyst (IT)",
+            "company": "Vinfact",
+            "jobLocation": "Đà Nẵng",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2017-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Software Engineer",
+            "company": "LG EDV",
+            "jobLocation": "Đà Nẵng",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2014-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "DevOps Engineer",
+            "company": "SamSung",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2012-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Quality Assurance Engineer",
+            "company": "SUN",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2020-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "IT Project Manager",
+            "company": "LG EDV",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "full-time",
+            "createdAt": "2020-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Quality Assurance Engineer",
+            "company": "FPT",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2011-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Quality Assurance Engineer",
+            "company": "Vinfact",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2021-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Quality Assurance Engineer",
+            "company": "Vinfact",
+            "jobLocation": "Bình Định",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2011-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "UX/UI Designer",
+            "company": "LG EDV",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2017-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Cloud Solutions Architect",
+            "company": "GMO-Z",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2017-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Backend Developer",
+            "company": "RIKKEISOFT",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2015-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Technical Support Specialist",
+            "company": "RIKKEISOFT",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2016-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Database Administrator",
+            "company": "Vinfact",
+            "jobLocation": "Hà Nội",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2021-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Technical Support Specialist",
+            "company": "SamSung",
+            "jobLocation": "Quy Nhơn",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2015-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "DevOps Engineer",
+            "company": "VTC",
+            "jobLocation": "Quy Nhơn",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2016-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Mobile App Developer",
+            "company": "FPT",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2013-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Data Scientist",
+            "company": "RIKKEISOFT",
+            "jobLocation": "Đà Nẵng",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2017-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Data Scientist",
+            "company": "DAC",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2013-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Blockchain Developer",
+            "company": "SamSung",
+            "jobLocation": "Đà Nẵng",
+            "status": "declined",
+            "jobType": "full-time",
+            "createdAt": "2018-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Frontend Developer",
+            "company": "SamSung",
+            "jobLocation": "Hà Nội",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2022-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "IT Project Manager",
+            "company": "DAC",
+            "jobLocation": "Hà Nội",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2019-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Network Engineer",
+            "company": "VTC",
+            "jobLocation": "Đà Nẵng",
+            "status": "declined",
+            "jobType": "full-time",
+            "createdAt": "2016-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Backend Developer",
+            "company": "FPT",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2014-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "DevOps Engineer",
+            "company": "LG EDV",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2021-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Software Engineer",
+            "company": "LG EDV",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2015-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Backend Developer",
+            "company": "FPT",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2014-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "DevOps Engineer",
+            "company": "DAC",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2022-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "IT Project Manager",
+            "company": "SamSung",
+            "jobLocation": "Đà Nẵng",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2019-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Cloud Solutions Architect",
+            "company": "LG EDV",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2016-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Software Engineer",
+            "company": "GMO-Z",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2020-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "DevOps Engineer",
+            "company": "SUN",
+            "jobLocation": "Quy Nhơn",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2013-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "IT Project Manager",
+            "company": "VTC",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2014-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Full Stack Developer",
+            "company": "GMO-Z",
+            "jobLocation": "Hà Nội",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2021-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Business Analyst (IT)",
+            "company": "KMS",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2019-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Mobile App Developer",
+            "company": "FPT",
+            "jobLocation": "Hà Nội",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2017-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Mobile App Developer",
+            "company": "KMS",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2016-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "System Administrator",
+            "company": "SUN",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2015-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "UX/UI Designer",
+            "company": "GMO-Z",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2015-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Business Analyst (IT)",
+            "company": "Vinfact",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2014-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Backend Developer",
+            "company": "DAC",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2012-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Database Administrator",
+            "company": "FPT",
+            "jobLocation": "Đà Nẵng",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2020-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "IT Project Manager",
+            "company": "VTC",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2022-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Blockchain Developer",
+            "company": "SamSung",
+            "jobLocation": "Quy Nhơn",
+            "status": "declined",
+            "jobType": "full-time",
+            "createdAt": "2016-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "UX/UI Designer",
+            "company": "Vinfact",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2021-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "DevOps Engineer",
+            "company": "FPT",
+            "jobLocation": "Hà Nội",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2020-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Network Engineer",
+            "company": "FPT",
+            "jobLocation": "Quy Nhơn",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2015-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Full Stack Developer",
+            "company": "KMS",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2015-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Network Engineer",
+            "company": "SamSung",
+            "jobLocation": "Quy Nhơn",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2015-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Network Engineer",
+            "company": "VTC",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2011-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "System Administrator",
+            "company": "KMS",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2023-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Frontend Developer",
+            "company": "DAC",
+            "jobLocation": "Hà Nội",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2022-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Data Scientist",
+            "company": "RIKKEISOFT",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2013-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Full Stack Developer",
+            "company": "KMS",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2016-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Blockchain Developer",
+            "company": "Vinfact",
+            "jobLocation": "Quy Nhơn",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2020-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Data Scientist",
+            "company": "LG EDV",
+            "jobLocation": "Quy Nhơn",
+            "status": "declined",
+            "jobType": "full-time",
+            "createdAt": "2020-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "DevOps Engineer",
+            "company": "VTC",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2021-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "AI/ML Engineer",
+            "company": "Vinfact",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2017-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Backend Developer",
+            "company": "VNG",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2017-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "UX/UI Designer",
+            "company": "KMS",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2016-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "IT Project Manager",
+            "company": "DAC",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2019-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Technical Support Specialist",
+            "company": "KMS",
+            "jobLocation": "Đà Nẵng",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2021-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Software Engineer",
+            "company": "SamSung",
+            "jobLocation": "Bình Định",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2011-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "IT Project Manager",
+            "company": "DAC",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2017-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Database Administrator",
+            "company": "LG EDV",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2020-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Mobile App Developer",
+            "company": "VTC",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2015-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Frontend Developer",
+            "company": "SamSung",
+            "jobLocation": "Hà Nội",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2012-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Business Analyst (IT)",
+            "company": "FPT",
+            "jobLocation": "Hà Nội",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2015-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Software Engineer",
+            "company": "RIKKEISOFT",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2017-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Software Engineer",
+            "company": "KMS",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2021-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Technical Support Specialist",
+            "company": "KMS",
+            "jobLocation": "Đà Nẵng",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2018-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "AI/ML Engineer",
+            "company": "FPT",
+            "jobLocation": "Hà Nội",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2016-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Security Analyst",
+            "company": "DAC",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2016-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Full Stack Developer",
+            "company": "SamSung",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2015-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Business Analyst (IT)",
+            "company": "KMS",
+            "jobLocation": "Quy Nhơn",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2016-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Frontend Developer",
+            "company": "DAC",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2019-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Software Engineer",
+            "company": "VTC",
+            "jobLocation": "Đà Nẵng",
+            "status": "interview",
+            "jobType": "internship",
+            "createdAt": "2016-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Full Stack Developer",
+            "company": "SamSung",
+            "jobLocation": "Hà Nội",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2020-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Quality Assurance Engineer",
+            "company": "SamSung",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2015-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Backend Developer",
+            "company": "RIKKEISOFT",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2011-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Mobile App Developer",
+            "company": "SamSung",
+            "jobLocation": "Quy Nhơn",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2022-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Business Analyst (IT)",
+            "company": "FPT",
+            "jobLocation": "Đà Nẵng",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2017-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Database Administrator",
+            "company": "FPT",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2019-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Business Analyst (IT)",
+            "company": "SUN",
+            "jobLocation": "Hà Nội",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2016-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Network Engineer",
+            "company": "FPT",
+            "jobLocation": "Hà Nội",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2014-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Network Engineer",
+            "company": "KMS",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2018-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Software Engineer",
+            "company": "KMS",
+            "jobLocation": "Quy Nhơn",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2011-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Blockchain Developer",
+            "company": "LG EDV",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2021-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "DevOps Engineer",
+            "company": "SamSung",
+            "jobLocation": "Quy Nhơn",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2016-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Database Administrator",
+            "company": "GMO-Z",
+            "jobLocation": "Đà Nẵng",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2012-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "AI/ML Engineer",
+            "company": "VNG",
+            "jobLocation": "Đà Nẵng",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2021-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Network Engineer",
+            "company": "GMO-Z",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2012-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Cloud Solutions Architect",
+            "company": "FPT",
+            "jobLocation": "Bình Định",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2012-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Frontend Developer",
+            "company": "VTC",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2014-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Data Scientist",
+            "company": "FPT",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "full-time",
+            "createdAt": "2022-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Cloud Solutions Architect",
+            "company": "Vinfact",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2021-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Frontend Developer",
+            "company": "DAC",
+            "jobLocation": "Hà Nội",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2015-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Network Engineer",
+            "company": "DAC",
+            "jobLocation": "Hà Nội",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2013-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Security Analyst",
+            "company": "SamSung",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2015-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Data Scientist",
+            "company": "KMS",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2012-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "DevOps Engineer",
+            "company": "DAC",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2019-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Cloud Solutions Architect",
+            "company": "Vinfact",
+            "jobLocation": "Hà Nội",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2021-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Cybersecurity Specialist",
+            "company": "VNG",
+            "jobLocation": "Đà Nẵng",
+            "status": "declined",
+            "jobType": "full-time",
+            "createdAt": "2017-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Security Analyst",
+            "company": "KMS",
+            "jobLocation": "Hà Nội",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2018-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Network Engineer",
+            "company": "FPT",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2016-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Backend Developer",
+            "company": "VNG",
+            "jobLocation": "Hà Nội",
+            "status": "pending",
+            "jobType": "part-time",
+            "createdAt": "2019-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Security Analyst",
+            "company": "SamSung",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2016-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Data Scientist",
+            "company": "VTC",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2018-08-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "UX/UI Designer",
+            "company": "DAC",
+            "jobLocation": "Hà Nội",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2017-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Cybersecurity Specialist",
+            "company": "VTC",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2022-05-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Mobile App Developer",
+            "company": "SUN",
+            "jobLocation": "Hà Nội",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2018-01-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Cybersecurity Specialist",
+            "company": "VNG",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2023-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Network Engineer",
+            "company": "DAC",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2012-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Backend Developer",
+            "company": "FPT",
+            "jobLocation": "Quy Nhơn",
+            "status": "declined",
+            "jobType": "part-time",
+            "createdAt": "2011-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Database Administrator",
+            "company": "FPT",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2017-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Software Engineer",
+            "company": "SUN",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2017-04-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Technical Support Specialist",
+            "company": "Vinfact",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "declined",
+            "jobType": "full-time",
+            "createdAt": "2014-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "UX/UI Designer",
+            "company": "FPT",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "interview",
+            "jobType": "part-time",
+            "createdAt": "2019-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "System Administrator",
+            "company": "SUN",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2012-02-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Mobile App Developer",
+            "company": "KMS",
+            "jobLocation": "Đà Nẵng",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2020-07-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Business Analyst (IT)",
+            "company": "KMS",
+            "jobLocation": "Quy Nhơn",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2015-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Quality Assurance Engineer",
+            "company": "KMS",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "full-time",
+            "createdAt": "2012-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "AI/ML Engineer",
+            "company": "KMS",
+            "jobLocation": "Hồ Chí Minh",
+            "status": "declined",
+            "jobType": "internship",
+            "createdAt": "2022-06-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Backend Developer",
+            "company": "FPT",
+            "jobLocation": "Bình Định",
+            "status": "interview",
+            "jobType": "full-time",
+            "createdAt": "2019-03-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "Frontend Developer",
+            "company": "LG EDV",
+            "jobLocation": "Bình Định",
+            "status": "declined",
+            "jobType": "full-time",
+            "createdAt": "2021-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        },
+        {
+            "position": "AI/ML Engineer",
+            "company": "DAC",
+            "jobLocation": "Bình Định",
+            "status": "pending",
+            "jobType": "internship",
+            "createdAt": "2014-09-18T09:12:32.545+00:00",
+            "createdBy": "65a8e740aee5bb5efb87b33b"
+        }
+    ]
+}
