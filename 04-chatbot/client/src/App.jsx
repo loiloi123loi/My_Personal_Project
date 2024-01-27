@@ -1,52 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import axios from 'axios'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import {
+    ErrorPage,
+    LoginPage,
+    RegisterPage,
+    LandingPage,
+    ProtectedRoute,
+    ResetPasswordPage,
+    ForgotPasswordPage,
+} from './pages'
+import { SharedLayout, Chat, Profile } from './pages/DashBoard'
+import { getThemeFromStorage, saveThemeToStorage } from './utils/localStorage'
 
 function App() {
-    const [file, setFile] = useState(null)
-    const [srcImg, setSrcImg] = useState('')
-    const handleChange = (e) => {
-        setFile(e.target.files[0])
-        setSrcImg(e.target.value)
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (!file) {
-            console.log('chưa có file')
-            return
-        }
-        console.log(file)
-        axios
-            .patch(
-                'http://localhost:5000/api/v1/user/update-profile',
-                { file },
-                {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                    },
-                }
-            )
-            .then((resp) => {
-                console.log(resp.data)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }
-
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                id="avatar"
-                type="file"
-                name="avatar"
-                value={srcImg}
-                onChange={handleChange}
-                accept="image/*"
+        <BrowserRouter>
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <ProtectedRoute>
+                            <SharedLayout />
+                        </ProtectedRoute>
+                    }
+                >
+                    <Route index element={<Chat />} />
+                </Route>
+                <Route path="landing" element={<LandingPage />} />
+                <Route path="reset-password" element={<ResetPasswordPage />} />
+                <Route
+                    path="forgot-password"
+                    element={<ForgotPasswordPage />}
+                />
+                <Route path="register" element={<RegisterPage />} />
+                <Route path="login" element={<LoginPage />} />
+                <Route path="*" element={<ErrorPage />} />
+            </Routes>
+            <ToastContainer
+                position="top-center"
+                autoClose={3000}
+                theme="light"
+                closeOnClick={true}
+                pauseOnHover={false}
             />
-            <button>submit</button>
-        </form>
+        </BrowserRouter>
     )
 }
 
