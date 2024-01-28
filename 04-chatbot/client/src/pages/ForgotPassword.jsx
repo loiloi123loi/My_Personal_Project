@@ -2,9 +2,11 @@ import { Form, Typography, Button, Space } from 'antd'
 import Wrapper from '../assets/wrappers/ForgotPasswordPage'
 import FormRow from '../components/FormRow'
 import { LoadingOutlined, UserOutlined } from '@ant-design/icons'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import ResultDisplay from '../components/ResultDisplay'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { forgotPasswordUser, resetIsSubmit } from '../features/user/userSlice'
 
 const items = {
     pending: {
@@ -12,7 +14,7 @@ const items = {
         title: 'Processing',
         subTitle: 'We are sending a confirmation forgot message to your email',
     },
-    fullfied: {
+    fulfilled: {
         status: 'success',
         title: 'Success',
         subTitle:
@@ -26,10 +28,18 @@ const items = {
     },
 }
 const ForgotPassword = () => {
-    const [isSubmit, setIsSubmit] = useState('')
+    const { isSubmit } = useSelector((store) => store.user)
+    const dispatch = useDispatch()
     const handleSubmit = (values) => {
-        console.log(values)
+        dispatch(forgotPasswordUser(values))
     }
+    useEffect(() => {
+        if (['fulfilled', 'rejected'].includes(isSubmit)) {
+            setTimeout(() => {
+                dispatch(resetIsSubmit())
+            }, 3000)
+        }
+    }, [isSubmit])
 
     if (Object.keys(items).includes(isSubmit)) {
         return (
@@ -41,7 +51,12 @@ const ForgotPassword = () => {
 
     return (
         <Wrapper>
-            <Form className="form" name="normal_login" onFinish={handleSubmit}>
+            <Form
+                className="form"
+                name="normal_login"
+                onFinish={handleSubmit}
+                initialValues={{ email: 'loivantran10012002@gmail.com' }}
+            >
                 <Typography.Title className="title">
                     Forgot Password
                 </Typography.Title>

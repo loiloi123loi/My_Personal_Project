@@ -9,6 +9,7 @@ const FormRow = ({
     type,
     hasFeedback,
     disabled,
+    value,
 }) => {
     return (
         <Form.Item
@@ -17,6 +18,7 @@ const FormRow = ({
             rules={rules}
             hasFeedback={hasFeedback}
             validateDebounce={500}
+            initialValue={value}
         >
             <Input
                 prefix={prefix}

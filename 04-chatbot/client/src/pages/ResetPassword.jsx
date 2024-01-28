@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react'
 import ResultDisplay from '../components/ResultDisplay'
 import { Button, Form, Space, Typography } from 'antd'
 import FormRow from '../components/FormRow'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { resetIsSubmit, resetPasswordUser } from '../features/user/userSlice'
 
 const items = {
     pending: {
@@ -13,7 +15,7 @@ const items = {
         subTitle:
             'We are sending a confirmation reset password message to your email',
     },
-    fullfied: {
+    fulfilled: {
         status: 'success',
         title: 'Success',
         subTitle:
@@ -33,12 +35,31 @@ const initialState = {
 }
 const ResetPassword = () => {
     const [form] = Form.useForm()
-    const [isSubmit, setIsSubmit] = useState('')
+    const { isSubmit } = useSelector((store) => store.user)
+    const location = useLocation()
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const handleSubmit = (values) => {
-        console.log(values)
+        dispatch(resetPasswordUser(values))
     }
 
-    useEffect(() => {}, [])
+    useEffect(() => {
+        const params = new URLSearchParams(location.search)
+        const objParams = {}
+        for (const [key, value] of params.entries()) {
+            objParams[key] = value
+        }
+        form.setFieldsValue({ ...objParams })
+    }, [location])
+
+    useEffect(() => {
+        if (['fulfilled', 'rejected'].includes(isSubmit)) {
+            setTimeout(() => {
+                dispatch(resetIsSubmit())
+                navigate('/landing')
+            }, 3000)
+        }
+    }, [isSubmit])
 
     if (Object.keys(items).includes(isSubmit)) {
         return (

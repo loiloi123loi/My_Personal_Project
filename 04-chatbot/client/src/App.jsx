@@ -9,6 +9,7 @@ import {
     ProtectedRoute,
     ResetPasswordPage,
     ForgotPasswordPage,
+    VerifyEmailPage,
 } from './pages'
 import { SharedLayout, Chat, Profile } from './pages/DashBoard'
 import { getThemeFromStorage, saveThemeToStorage } from './utils/localStorage'
@@ -26,8 +27,10 @@ function App() {
                     }
                 >
                     <Route index element={<Chat />} />
+                    <Route path="my-profile" element={<Profile />} />
                 </Route>
                 <Route path="landing" element={<LandingPage />} />
+                <Route path="verify-email" element={<VerifyEmailPage />} />
                 <Route path="reset-password" element={<ResetPasswordPage />} />
                 <Route
                     path="forgot-password"

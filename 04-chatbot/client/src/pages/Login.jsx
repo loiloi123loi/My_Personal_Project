@@ -1,8 +1,11 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import FormRow from '../components/FormRow'
 import Wrapper from '../assets/wrappers/LoginPage'
 import { Form, Checkbox, Button, Typography } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
+import { useDispatch, useSelector } from 'react-redux'
+import { loginLocalUser } from '../features/user/userSlice'
+import { useEffect } from 'react'
 
 const initialState = {
     usernameOrEmail: '',
@@ -10,9 +13,19 @@ const initialState = {
     remember: true,
 }
 const Login = () => {
+    const { isLoading, user } = useSelector((store) => store.user)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     const handleSubmit = (values) => {
-        console.log(values)
+        dispatch(loginLocalUser(values))
     }
+
+    useEffect(() => {
+        if (user) {
+            navigate('/')
+        }
+    }, [user])
 
     return (
         <Wrapper>
@@ -21,6 +34,7 @@ const Login = () => {
                 className="login-form"
                 initialValues={initialState}
                 onFinish={handleSubmit}
+                disabled={isLoading}
             >
                 <Typography.Title className="title">Login</Typography.Title>
                 <FormRow
@@ -33,7 +47,6 @@ const Login = () => {
                     ]}
                     prefix={<UserOutlined className="site-form-item-icon" />}
                     placeholder="Username or Email"
-                    type="email"
                 />
                 <FormRow
                     name="password"
@@ -56,7 +69,6 @@ const Login = () => {
                         Forgot password
                     </Link>
                 </Form.Item>
-
                 <Form.Item>
                     <Button
                         type="primary"

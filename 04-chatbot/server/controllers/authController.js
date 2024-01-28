@@ -30,13 +30,13 @@ const registerLocal = async (req, res) => {
             'Repeat password not same with password'
         )
     }
-    const isUsernameExits = await User.findOne({ username })
+    const isUsernameExits = await User.findOne({ where: { username } })
     if (isUsernameExits) {
         throw new CustomError.BadRequestError(
             'Username is used, please try one more'
         )
     }
-    const isEmailExist = await User.findOne({ email })
+    const isEmailExist = await User.findOne({ where: { email } })
     if (isEmailExist) {
         throw new CustomError.BadRequestError(
             'Email is used, please try one more'
@@ -75,15 +75,19 @@ const registerGoogle = async (req, res) => {}
 const registerFacebook = async (req, res) => {}
 
 const verifyEmail = async (req, res) => {
-    const { verifycationToken, email } = req.body
-    const user = await User.findOne({ email })
+    const { token, email } = req.body
+    const user = await User.findOne({
+        where: {
+            email,
+        },
+    })
     if (!user) {
         throw new CustomError.UnAuthorizedError('Verification failed')
     }
     if (user.isVerified === true) {
         throw new CustomError.BadRequestError('Your account is verified')
     }
-    if (user.verifycationToken !== verifycationToken) {
+    if (user.verifycationToken !== token) {
         throw new CustomError.UnAuthorizedError('Verification failed')
     }
     user.isVerified = true
@@ -101,10 +105,10 @@ const loginLocal = async (req, res) => {
     let user
     if (validator.isEmail(usernameOrEmail)) {
         const email = usernameOrEmail
-        user = await User.findOne({ email })
+        user = await User.findOne({ where: { email } })
     } else {
         const username = usernameOrEmail
-        user = await User.findOne({ username })
+        user = await User.findOne({ where: { username } })
     }
     if (!user) {
         throw new CustomError.NotFoundError(
@@ -123,7 +127,7 @@ const loginLocal = async (req, res) => {
     }
     const tokenUser = createTokenUser(user)
     let refreshToken = ''
-    const isTokenExist = await Token.findOne({ userId: user.id })
+    const isTokenExist = await Token.findOne({ where: { userId: user.id } })
     if (isTokenExist) {
         const { isValid } = isTokenExist
         if (!isValid) {
@@ -176,7 +180,7 @@ const forgotPassword = async (req, res) => {
     if (!email || !validator.isEmail(email)) {
         throw new CustomError.BadRequestError('Please provide valid email')
     }
-    const user = await User.findOne({ email })
+    const user = await User.findOne({ where: { email } })
     if (user) {
         const passwordToken = crypto.randomBytes(70).toString('hex')
         const origin = process.env.FRONT_END_LINK
@@ -202,19 +206,19 @@ const resetPassword = async (req, res) => {
     if (!email || !token || !password) {
         throw new CustomError.BadRequestError('Please provide all fields')
     }
-    const user = await User.findOne({ email })
-    if (user) {
-        const currentDate = Date.now()
-        const dateExpire = new Date(user.passwordTokenExpirationDate).getTime()
-        if (
-            user.passwordToken === createHash(token) &&
-            dateExpire > currentDate
-        ) {
-            user.password = password
-            user.passwordToken = null
-            user.passwordTokenExpirationDate = null
-            await user.save()
-        }
+    const user = await User.findOne({ where: { email } })
+    if (!user) {
+        throw new CustomError.BadRequestError(`Your information is invalid`)
+    }
+    const currentDate = Date.now()
+    const dateExpire = new Date(user.passwordTokenExpirationDate).getTime()
+    if (user.passwordToken === createHash(token) && dateExpire > currentDate) {
+        user.password = password
+        user.passwordToken = null
+        user.passwordTokenExpirationDate = null
+        await user.save()
+    } else {
+        throw new CustomError.BadRequestError(`Your information is invalid`)
     }
     res.status(StatusCodes.OK).json({ msg: 'Reset password successfully' })
 }

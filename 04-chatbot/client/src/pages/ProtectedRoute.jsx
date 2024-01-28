@@ -1,10 +1,25 @@
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { getCurrentUser } from '../features/user/userSlice'
 
 const ProtectedRoute = ({ children }) => {
-    const user = 1
-    if (!user) {
-        return <Navigate to="/landing" />
-    }
+    const { user, isLogin } = useSelector((store) => store.user)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (!user && isLogin !== false) {
+            dispatch(getCurrentUser())
+        }
+    }, [dispatch, user])
+
+    useEffect(() => {
+        if (isLogin === false) {
+            navigate('/landing')
+        }
+    }, [dispatch, isLogin])
+
     return children
 }
 

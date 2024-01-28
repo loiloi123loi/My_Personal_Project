@@ -1,7 +1,7 @@
 const sendEmail = require('./sendEmail')
 
 const sendVerifycationEmail = ({ name, email, verifycationToken, origin }) => {
-    const urlVerify = `${origin}/user/verify-email?token=${verifycationToken}&email=${email}`
+    const urlVerify = `${origin}/verify-email?token=${verifycationToken}&email=${email}`
 
     const message = `
         <h1>Welcom to LOI CHAT, thank you for registering an account LOI CHAT</h1>

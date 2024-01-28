@@ -7,6 +7,8 @@ import {
 import Wrapper from '../assets/wrappers/RegisterPage'
 import FormRow from '../components/FormRow'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { registerUser } from '../features/user/userSlice'
 
 const initialState = {
     firstName: '',
@@ -18,17 +20,10 @@ const initialState = {
     agree_term: false,
 }
 const Register = () => {
+    const { isLoading } = useSelector((store) => store.user)
+    const dispatch = useDispatch()
     const handleSubmit = (values) => {
-        const {
-            firstName,
-            lastName,
-            username,
-            email,
-            password,
-            repeatPassword,
-        } = values
-        console.log(repeatPassword)
-        console.log(repeatPasswordHandle)
+        dispatch(registerUser(values))
     }
     const handleConfirmPass = ({ getFieldValue }) => ({
         validator(_, value) {
@@ -48,6 +43,7 @@ const Register = () => {
                 className="login-form"
                 initialValues={initialState}
                 onFinish={handleSubmit}
+                disabled={isLoading}
             >
                 <Typography.Title className="title">Register</Typography.Title>
                 <FormRow
@@ -152,7 +148,6 @@ const Register = () => {
                         Forgot password
                     </Link>
                 </Form.Item>
-
                 <Form.Item>
                     <Button
                         type="primary"

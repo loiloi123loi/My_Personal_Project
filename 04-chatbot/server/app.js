@@ -11,6 +11,7 @@ const {
     sessionConfig,
     cloudinaryConfig,
     fileUploadConfig,
+    corsConfig,
 } = require('./configs')
 
 // package
@@ -36,7 +37,7 @@ const {
     historyRouter,
 } = require('./routes')
 
-app.use(cors())
+app.use(cors(corsConfig))
 app.use(express.json())
 app.use(cookieParser(process.env.JWT_SECRET))
 app.set('trust proxy', 1)

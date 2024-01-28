@@ -36,24 +36,14 @@ const getSingleUser = async (req, res) => {
 const currentUser = async (req, res) => {
     const { id } = req.user
     const user = await User.findOne({
-        attributes: [
-            'id',
-            'firstName',
-            'lastName',
-            'fullName',
-            'username',
-            'email',
-            'phone',
-            'avatar',
-            'role',
-        ],
         where: { id },
     })
     if (!user) {
         throw new CustomError.NotFoundError(`No user with id ${id}`)
     }
     checkPermission(req.user, user.id)
-    res.status(StatusCodes.OK).json({ msg: user })
+    const userToken = createTokenUser(user)
+    res.status(StatusCodes.OK).json({ user: userToken })
 }
 
 const updateProfile = async (req, res) => {

@@ -5,6 +5,7 @@ import LandingPage from './Landing'
 import ProtectedRoute from './ProtectedRoute'
 import ForgotPasswordPage from './ForgotPassword'
 import ResetPasswordPage from './ResetPassword'
+import VerifyEmailPage from './VerifyEmail'
 
 export {
     ErrorPage,
@@ -14,4 +15,5 @@ export {
     ProtectedRoute,
     ForgotPasswordPage,
     ResetPasswordPage,
+    VerifyEmailPage,
 }
