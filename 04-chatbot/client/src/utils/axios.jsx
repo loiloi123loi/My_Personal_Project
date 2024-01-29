@@ -9,9 +9,7 @@ const customFetch = wrapper(
 )
 
 customFetch.interceptors.request.use((config) => {
-    if (config.data instanceof FormData) {
-        config.headers['Content-Type'] = `multipart/form-data`
-    }
+    config.headers['Content-Type'] = `multipart/form-data`
     return config
 })
 
@@ -20,7 +18,7 @@ export const checkForUnauthorizedResponse = (err, thunkAPI) => {
         // thunkAPI.dispatch(clearStore())
         return thunkAPI.rejectWithValue('Unauthorized! Logging Out...')
     }
-    return thunkAPI.rejectWithValue(error.response.data.msg)
+    return thunkAPI.rejectWithValue(err.response.data.msg)
 }
 
 export default customFetch

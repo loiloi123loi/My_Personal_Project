@@ -5,8 +5,10 @@ import {
     Col,
     Form,
     Image,
+    Input,
     Layout,
     Row,
+    Select,
     Space,
     Typography,
     Upload,
@@ -19,36 +21,30 @@ import {
     UserOutlined,
 } from '@ant-design/icons'
 import FormRow from '../../components/FormRow'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { updateProfileUser } from '../../features/user/userSlice'
+import { toast } from 'react-toastify'
 const { Header, Content, Footer, Sider } = Layout
 
-const props = {
-    name: 'avatar',
-    action: 'https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188',
-    headers: {
-        authorization: 'authorization-text',
-    },
-    maxCount: 1,
-    onChange(info) {
-        if (info.file.status !== 'uploading') {
-            console.log(info.file, info.fileList)
-        }
-        if (info.file.status === 'done') {
-        } else if (info.file.status === 'error') {
-        }
-    },
-}
 const Profile = () => {
     const { isLoading, user } = useSelector((store) => store.user)
     const [form] = Form.useForm()
     const [avatarFile, setAvatarFile] = useState(null)
+    const dispatch = useDispatch()
     const handleSubmit = (values) => {
-        console.log({ ...values, avatar: avatarFile })
-    }
-    const handleChange = (e) => {
-        if (e.file.status === 'done') {
-            setAvatarFile(e.file)
+        let { phone } = values
+        if (phone.length < 9 || phone.length > 10) {
+            toast.error('Please provide valid phone')
+            return
         }
+        if (phone.length === 9) {
+            phone = '0' + phone
+        }
+        dispatch(updateProfileUser({ ...values, avatar: avatarFile }))
+    }
+    const handleChange = (file) => {
+        setAvatarFile(file)
+        return false
     }
     useEffect(() => {
         if (user) {
@@ -101,8 +97,8 @@ const Profile = () => {
                         </div>
                         <Upload
                             name="avatar"
-                            {...props}
-                            onChange={handleChange}
+                            maxCount={1}
+                            beforeUpload={handleChange}
                         >
                             <Button icon={<UploadOutlined />}>
                                 Click to Upload
@@ -119,7 +115,7 @@ const Profile = () => {
                             </Typography.Title>
                         </Col>
                         <Col span={12}>
-                            <FormRow name="firstName" value={user?.firstName} />
+                            <FormRow name="firstName" />
                         </Col>
                         <Col
                             span={7}
@@ -130,7 +126,7 @@ const Profile = () => {
                             </Typography.Title>
                         </Col>
                         <Col span={12}>
-                            <FormRow name="lastName" value={user?.lastName} />
+                            <FormRow name="lastName" />
                         </Col>
                         <Col
                             span={7}
@@ -141,7 +137,7 @@ const Profile = () => {
                             </Typography.Title>
                         </Col>
                         <Col span={12}>
-                            <FormRow name="username" value={user?.username} />
+                            <FormRow name="username" disabled={true} />
                         </Col>
                         <Col
                             span={7}
@@ -152,7 +148,7 @@ const Profile = () => {
                             </Typography.Title>
                         </Col>
                         <Col span={12}>
-                            <FormRow name="email" value={user?.email} />
+                            <FormRow name="email" disabled={true} />
                         </Col>
                         <Col
                             span={7}
@@ -163,7 +159,33 @@ const Profile = () => {
                             </Typography.Title>
                         </Col>
                         <Col span={12}>
-                            <FormRow name="phone" value={user?.phone} />
+                            <Form.Item
+                                name="phone"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message:
+                                            'Please input your phone number!',
+                                    },
+                                ]}
+                            >
+                                <Input
+                                    addonBefore={
+                                        <Form.Item
+                                            name="prefix"
+                                            noStyle
+                                            initialValue={'84'}
+                                        >
+                                            <Select style={{ width: 70 }}>
+                                                <Select.Option value="84">
+                                                    +84
+                                                </Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                    }
+                                    style={{ width: '100%' }}
+                                />
+                            </Form.Item>
                         </Col>
                         <Col
                             span={24}

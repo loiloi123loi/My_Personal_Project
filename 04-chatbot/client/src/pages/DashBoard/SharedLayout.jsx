@@ -2,11 +2,12 @@ import { Link, Outlet } from 'react-router-dom'
 import { SmallSidebar, Navbar } from '../../components'
 import Wrapper from '../../assets/wrappers/SharedLayout'
 import img from '../../assets/images/logo.ico'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
     AppstoreOutlined,
     BarChartOutlined,
     CloudOutlined,
+    MessageOutlined,
     PlusOutlined,
     RobotOutlined,
     SendOutlined,
@@ -29,41 +30,18 @@ import {
     Typography,
     theme,
 } from 'antd'
+import { useDispatch, useSelector } from 'react-redux'
+import { createNewChat, getAllChat } from '../../features/chat/chatSlice'
 const { Header, Content, Footer, Sider } = Layout
-const items = [
-    UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
-    BarChartOutlined,
-    CloudOutlined,
-    AppstoreOutlined,
-    TeamOutlined,
-    ShopOutlined,
-    ShopOutlined,
-    ShopOutlined,
-    ShopOutlined,
-    ShopOutlined,
-    ShopOutlined,
-    ShopOutlined,
-    ShopOutlined,
-    ShopOutlined,
-    ShopOutlined,
-    ShopOutlined,
-    ShopOutlined,
-].map((icon, index) => ({
-    key: String(index + 1),
-    icon: React.createElement(icon),
-    label: `nav ${index + 1}`,
-}))
 
 const SharedLayout = () => {
-    const handleSubmit = (values) => {
-        console.log(values)
-    }
-
-    const {
-        token: { colorBgContainer, borderRadiusLG },
-    } = theme.useToken()
+    const { user } = useSelector((store) => store.user)
+    const { isLoading, items } = useSelector((store) => store.chat)
+    const [idChatSelected, setIdChatSelected] = useState('')
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getAllChat())
+    }, [])
 
     return (
         <Wrapper>
@@ -76,15 +54,27 @@ const SharedLayout = () => {
                     <Menu
                         theme="dark"
                         mode="inline"
-                        defaultSelectedKeys={['1']}
-                        items={items}
+                        defaultSelectedKeys={[idChatSelected]}
+                        items={items?.map((item) => ({
+                            key: String(item.id),
+                            icon: <MessageOutlined />,
+                            label: `${item.chatname}`,
+                        }))}
                         className="sider_menu"
+                        disabled={isLoading}
+                        onClick={(e) => {
+                            setIdChatSelected(e.key)
+                        }}
                     />
                     <div className="my_cre">
                         <Link to="/">
                             <Button
                                 icon={<PlusOutlined />}
                                 className="profile-btn"
+                                onClick={() => {
+                                    dispatch(createNewChat())
+                                }}
+                                htmlType="submit"
                             >
                                 <Typography.Text ellipsis>
                                     Create New Chat
@@ -97,7 +87,7 @@ const SharedLayout = () => {
                                 className="profile-btn"
                             >
                                 <Typography.Text ellipsis>
-                                    Loi Tran
+                                    {user?.fullName}
                                 </Typography.Text>
                             </Button>
                         </Link>

@@ -52,15 +52,17 @@ const updateProfile = async (req, res) => {
         throw new CustomError.BadRequestError('Please provide all fields')
     }
     const user = await User.findOne({
-        email: req.user.email,
-        id: req.user.id,
+        where: {
+            email: req.user.email,
+            id: req.user.id,
+        },
     })
     if (!user) {
         throw new CustomError.UnAuthorizedError('Authentication Fail')
     }
     if (req.files) {
-        const file = req.files.file
-        if (!file.mimetype.startsWith('image')) {
+        const file = req.files.avatar
+        if (!file || !file.mimetype || !file.mimetype.startsWith('image')) {
             throw new CustomError.BadRequestError(`Please upload image`)
         }
         const maxsize = 512 * 1024
@@ -88,7 +90,11 @@ const updateProfile = async (req, res) => {
     user.lastName = lastName
     user.phone = phone
     await user.save()
-    res.status(StatusCodes.OK).json({ msg: 'Update user successfull' })
+    const tokenUser = createTokenUser(user)
+    res.status(StatusCodes.OK).json({
+        msg: 'Update user successfull',
+        user: tokenUser,
+    })
 }
 
 const updateUserPassword = async (req, res) => {

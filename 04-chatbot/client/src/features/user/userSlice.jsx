@@ -6,6 +6,7 @@ import {
     loginLocalThunk,
     registerUserThunk,
     resetPasswordThunk,
+    updateProfileThunk,
     verifyEmailThunk,
 } from './userThunk'
 
@@ -55,6 +56,13 @@ export const resetPasswordUser = createAsyncThunk(
     'user/resetPassword',
     async (user, thunkAPI) => {
         return resetPasswordThunk('/auth/reset-password', user, thunkAPI)
+    }
+)
+
+export const updateProfileUser = createAsyncThunk(
+    'user/updateProfile',
+    async (user, thunkAPI) => {
+        return updateProfileThunk('/user/update-profile', user, thunkAPI)
     }
 )
 
@@ -150,6 +158,18 @@ const userSlice = createSlice({
             .addCase(resetPasswordUser.rejected, (state, { payload }) => {
                 state.isLoading = false
                 state.isSubmit = 'rejected'
+                toast.error(payload)
+            })
+            .addCase(updateProfileUser.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(updateProfileUser.fulfilled, (state, { payload }) => {
+                state.isLoading = false
+                state.user = payload.user
+                toast.success(payload.msg)
+            })
+            .addCase(updateProfileUser.rejected, (state, { payload }) => {
+                state.isLoading = false
                 toast.error(payload)
             })
     },

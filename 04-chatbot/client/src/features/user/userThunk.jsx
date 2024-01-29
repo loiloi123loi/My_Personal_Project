@@ -32,7 +32,7 @@ export const getCurrentUserThunk = async (url, thunkAPI) => {
         const resp = await customFetch.get(url)
         return resp.data
     } catch (err) {
-        return thunkAPI.rejectWithValue(err.response.data.msg)
+        return checkForUnauthorizedResponse(err, thunkAPI)
     }
 }
 
@@ -51,5 +51,14 @@ export const resetPasswordThunk = async (url, user, thunkAPI) => {
         return resp.data
     } catch (err) {
         return thunkAPI.rejectWithValue(err.response.data.msg)
+    }
+}
+
+export const updateProfileThunk = async (url, user, thunkAPI) => {
+    try {
+        const resp = await customFetch.patch(url, user)
+        return resp.data
+    } catch (err) {
+        return checkForUnauthorizedResponse(err, thunkAPI)
     }
 }
