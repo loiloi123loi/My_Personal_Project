@@ -21,6 +21,7 @@ const { passport } = require('./utils')
 const session = require('express-session')
 const fileupload = require('express-fileupload')
 const cloudinary = require('cloudinary').v2
+const morgan = require('morgan')
 
 // middleware
 const {
@@ -38,6 +39,11 @@ const {
 } = require('./routes')
 
 app.use(cors(corsConfig))
+app.use(
+    morgan(
+        ':method   :url   :status   :res[content-length]   :response-time ms'
+    )
+)
 app.use(express.json())
 app.use(cookieParser(process.env.JWT_SECRET))
 app.set('trust proxy', 1)

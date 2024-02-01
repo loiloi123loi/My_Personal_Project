@@ -1,4 +1,7 @@
 import customFetch, { checkForUnauthorizedResponse } from '../../utils/axios'
+import { clearChat } from '../chat/chatSlice'
+import { clearHistory } from '../history/historySlice'
+import { clearUser } from './userSlice'
 
 export const registerUserThunk = async (url, user, thunkAPI) => {
     try {
@@ -57,6 +60,18 @@ export const resetPasswordThunk = async (url, user, thunkAPI) => {
 export const updateProfileThunk = async (url, user, thunkAPI) => {
     try {
         const resp = await customFetch.patch(url, user)
+        return resp.data
+    } catch (err) {
+        return checkForUnauthorizedResponse(err, thunkAPI)
+    }
+}
+
+export const logoutUserThunk = async (url, thunkAPI) => {
+    try {
+        const resp = await customFetch.delete(url)
+        thunkAPI.dispatch(clearUser('Logging out...'))
+        thunkAPI.dispatch(clearHistory())
+        thunkAPI.dispatch(clearChat())
         return resp.data
     } catch (err) {
         return checkForUnauthorizedResponse(err, thunkAPI)

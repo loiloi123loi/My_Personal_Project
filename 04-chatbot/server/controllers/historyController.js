@@ -12,12 +12,13 @@ const getHistory = async (req, res) => {
         },
         order: [['createdAt', 'ASC']],
     })
+    console.log(history)
     const chat = await Chat.findOne({
         where: {
             id: chatId,
         },
     })
-    checkPermission(req.user, chat.id)
+    checkPermission(req.user, chat.userId)
     res.status(StatusCodes.OK).json({
         msg: {
             length: history.length,
@@ -31,21 +32,37 @@ const ask = async (req, res) => {
     const { content } = req.body
     if (!content || content?.length > 2000) {
         throw new CustomError.BadRequestError(
-            'Độ dài tin nhắn từ 1 - 2000 kí tự'
+            'Message length must between 1 and 2000'
         )
     }
+    const olds = await History.findAll({
+        where: {
+            chatId,
+        },
+    })
+    const history = olds.map((item) => {
+        return {
+            role: item.who,
+            parts: item.content,
+        }
+    })
     await History.create({
         chatId,
         content,
         who: 'user',
     })
-    const modelResp = await getRspGenerative(content)
+    const modelResp = await getRspGenerative({ history, content })
     await History.create({
         chatId,
         content: modelResp,
         who: 'model',
     })
-    await res.status(StatusCodes.OK).json({ msg: modelResp })
+    res.status(StatusCodes.OK).json({
+        msg: {
+            content: modelResp,
+            who: 'model',
+        },
+    })
 }
 
 module.exports = {

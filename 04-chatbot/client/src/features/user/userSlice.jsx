@@ -4,6 +4,7 @@ import {
     forgotPasswordThunk,
     getCurrentUserThunk,
     loginLocalThunk,
+    logoutUserThunk,
     registerUserThunk,
     resetPasswordThunk,
     updateProfileThunk,
@@ -65,6 +66,12 @@ export const updateProfileUser = createAsyncThunk(
         return updateProfileThunk('/user/update-profile', user, thunkAPI)
     }
 )
+export const logoutUser = createAsyncThunk(
+    'user/logoutUser',
+    async (_, thunkAPI) => {
+        return logoutUserThunk('/auth/logout', thunkAPI)
+    }
+)
 
 const userSlice = createSlice({
     name: 'user',
@@ -73,8 +80,9 @@ const userSlice = createSlice({
         resetIsSubmit: (state) => {
             state.isSubmit = ''
         },
-        logoutUser: (state, { payload }) => {
+        clearUser: (state, { payload }) => {
             state.user = null
+            state.isLogin = null
             if (payload) {
                 toast.success(payload)
             }
@@ -113,6 +121,7 @@ const userSlice = createSlice({
             })
             .addCase(loginLocalUser.fulfilled, (state, { payload }) => {
                 state.isLoading = false
+                state.isLogin = true
                 state.user = payload.user
                 toast.success('Login successfull')
             })
@@ -172,9 +181,20 @@ const userSlice = createSlice({
                 state.isLoading = false
                 toast.error(payload)
             })
+            .addCase(logoutUser.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(logoutUser.fulfilled, (state, { payload }) => {
+                state.isLoading = false
+                toast.success(payload.msg)
+            })
+            .addCase(logoutUser.rejected, (state, { payload }) => {
+                state.isLoading = false
+                toast.error(payload)
+            })
     },
 })
 
-export const { logoutUser, resetIsSubmit } = userSlice.actions
+export const { clearUser, resetIsSubmit } = userSlice.actions
 
 export default userSlice.reducer

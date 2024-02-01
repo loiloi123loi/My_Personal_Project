@@ -15,7 +15,7 @@ customFetch.interceptors.request.use((config) => {
 
 export const checkForUnauthorizedResponse = (err, thunkAPI) => {
     if (err.response.status === 401) {
-        // thunkAPI.dispatch(clearStore())
+        // thunkAPI.dispatch(log())
         return thunkAPI.rejectWithValue('Unauthorized! Logging Out...')
     }
     return thunkAPI.rejectWithValue(err.response.data.msg)

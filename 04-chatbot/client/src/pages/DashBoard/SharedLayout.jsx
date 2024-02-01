@@ -1,44 +1,42 @@
 import { Link, Outlet } from 'react-router-dom'
-import { SmallSidebar, Navbar } from '../../components'
 import Wrapper from '../../assets/wrappers/SharedLayout'
 import img from '../../assets/images/logo.ico'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
-    AppstoreOutlined,
-    BarChartOutlined,
-    CloudOutlined,
+    DeleteOutlined,
+    EditOutlined,
     MessageOutlined,
     PlusOutlined,
-    RobotOutlined,
-    SendOutlined,
-    ShopOutlined,
-    TeamOutlined,
-    UploadOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
+    SaveFilled,
 } from '@ant-design/icons'
-import {
-    BackTop,
-    Button,
-    FloatButton,
-    Form,
-    Input,
-    Layout,
-    Menu,
-    Skeleton,
-    Space,
-    Typography,
-    theme,
-} from 'antd'
+import { Button, Form, Input, Layout, Menu, Popconfirm, Typography } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
-import { createNewChat, getAllChat } from '../../features/chat/chatSlice'
-const { Header, Content, Footer, Sider } = Layout
+import {
+    createNewChat,
+    deleteChat,
+    editChatname,
+    getAllChat,
+    handleEdit,
+    setIdChatSelected,
+} from '../../features/chat/chatSlice'
+const { Sider } = Layout
 
 const SharedLayout = () => {
     const { user } = useSelector((store) => store.user)
-    const { isLoading, items } = useSelector((store) => store.chat)
-    const [idChatSelected, setIdChatSelected] = useState('')
+    const { isLoading, isEdit, items, idChatSelected } = useSelector(
+        (store) => store.chat
+    )
+    const [chatnameEdit, setChatnameEdit] = useState('')
     const dispatch = useDispatch()
+    const handleSave = (e) => {
+        e.preventDefault()
+        if (isEdit) {
+            dispatch(editChatname({ id: idChatSelected, name: chatnameEdit }))
+        }
+    }
+    const handleDeleteClick = (id) => {
+        dispatch(deleteChat(id))
+    }
     useEffect(() => {
         dispatch(getAllChat())
     }, [])
@@ -51,21 +49,87 @@ const SharedLayout = () => {
                         <img src={img} />
                         <p>Web Chat</p>
                     </div>
-                    <Menu
-                        theme="dark"
-                        mode="inline"
-                        defaultSelectedKeys={[idChatSelected]}
-                        items={items?.map((item) => ({
-                            key: String(item.id),
-                            icon: <MessageOutlined />,
-                            label: `${item.chatname}`,
-                        }))}
-                        className="sider_menu"
-                        disabled={isLoading}
-                        onClick={(e) => {
-                            setIdChatSelected(e.key)
-                        }}
-                    />
+                    <form onSubmit={handleSave}>
+                        <Menu
+                            theme="dark"
+                            mode="inline"
+                            defaultSelectedKeys={[idChatSelected]}
+                            className="sider_menu"
+                            disabled={isLoading}
+                            onClick={(e) => {
+                                dispatch(setIdChatSelected(e.key))
+                            }}
+                            items={items?.map((item) => ({
+                                key: String(item.id),
+                                label: (
+                                    <React.Fragment>
+                                        {idChatSelected === String(item.id) &&
+                                        isEdit ? (
+                                            <>
+                                                <input
+                                                    defaultValue={item.chatname}
+                                                    style={{
+                                                        maxWidth: '78px',
+                                                    }}
+                                                    onChange={(e) =>
+                                                        setChatnameEdit(
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                    name="chatname"
+                                                />
+                                                <Button
+                                                    type="text"
+                                                    htmlType="submit"
+                                                    style={{
+                                                        color: '#fff',
+                                                    }}
+                                                    icon={<SaveFilled />}
+                                                ></Button>
+                                            </>
+                                        ) : (
+                                            <>
+                                                {item.chatname.length > 11
+                                                    ? item.chatname.slice(0, 10)
+                                                    : item.chatname}
+                                                <Button
+                                                    type="text"
+                                                    style={{ color: '#fff' }}
+                                                    icon={<EditOutlined />}
+                                                    onClick={(e) => {
+                                                        setChatnameEdit(
+                                                            item.chatname
+                                                        )
+                                                        e.preventDefault()
+                                                        dispatch(
+                                                            handleEdit(
+                                                                String(item.id)
+                                                            )
+                                                        )
+                                                    }}
+                                                ></Button>
+                                            </>
+                                        )}
+                                        <Popconfirm
+                                            title="Delete the chat"
+                                            description="Are you sure to delete this chat?"
+                                            onConfirm={(e) =>
+                                                handleDeleteClick(item.id)
+                                            }
+                                            okText="Yes"
+                                            cancelText="No"
+                                        >
+                                            <Button
+                                                type="text"
+                                                style={{ color: '#fff' }}
+                                                icon={<DeleteOutlined />}
+                                            ></Button>
+                                        </Popconfirm>
+                                    </React.Fragment>
+                                ),
+                            }))}
+                        ></Menu>
+                    </form>
                     <div className="my_cre">
                         <Link to="/">
                             <Button
@@ -83,7 +147,16 @@ const SharedLayout = () => {
                         </Link>
                         <Link to="/my-profile">
                             <Button
-                                icon={<img src={img} width={'20px'} />}
+                                icon={
+                                    <img
+                                        src={
+                                            user?.avatar
+                                                ? user.avatar
+                                                : 'https://res.cloudinary.com/doeysdjl4/image/upload/v1706444138/avatar/ptcbhir4s3kkkuzsi0b0.avif'
+                                        }
+                                        width={'20px'}
+                                    />
+                                }
                                 className="profile-btn"
                             >
                                 <Typography.Text ellipsis>

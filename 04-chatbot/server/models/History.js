@@ -8,7 +8,7 @@ const History = sequelize.define('History', {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            len: [1, 2000],
+            len: [1],
         },
     },
     chatId: {

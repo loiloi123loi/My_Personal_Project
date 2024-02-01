@@ -17,8 +17,11 @@ const model = genAI.getGenerativeModel({
     safetySettings,
 })
 
-const getRspGenerative = async (content) => {
-    const result = await model.generateContent(content)
+const getRspGenerative = async ({ history, content }) => {
+    const chat = model.startChat({
+        history,
+    })
+    const result = await chat.sendMessage(content)
     const response = await result.response
     const text = response.text()
     return text

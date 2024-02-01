@@ -22,7 +22,7 @@ import {
 } from '@ant-design/icons'
 import FormRow from '../../components/FormRow'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateProfileUser } from '../../features/user/userSlice'
+import { logoutUser, updateProfileUser } from '../../features/user/userSlice'
 import { toast } from 'react-toastify'
 const { Header, Content, Footer, Sider } = Layout
 
@@ -215,6 +215,9 @@ const Profile = () => {
                 <Button
                     icon={<LogoutOutlined />}
                     style={{ backgroundColor: 'red' }}
+                    onClick={() => {
+                        dispatch(logoutUser())
+                    }}
                 >
                     Logout
                 </Button>

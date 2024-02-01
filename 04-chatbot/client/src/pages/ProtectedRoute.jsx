@@ -9,13 +9,13 @@ const ProtectedRoute = ({ children }) => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!user && isLogin !== false) {
+        if (!user && isLogin === true) {
             dispatch(getCurrentUser())
         }
     }, [dispatch, user])
 
     useEffect(() => {
-        if (isLogin === false) {
+        if (isLogin !== true) {
             navigate('/landing')
         }
     }, [dispatch, isLogin])

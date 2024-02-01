@@ -84,6 +84,50 @@ const Wrapper = styled.div`
         background-color: rgba(217, 217, 227, 0.4);
     }
 
+    .chat_loading {
+        margin: 15px 100px 0;
+        overflow: initial;
+    }
+
+    .chat_in_the_end {
+        margin: 15px 100px 80px;
+        overflow: initial;
+    }
+
+    .chat_item_block {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .chat_form_area {
+        margin: 0px 16px;
+        position: fixed;
+        overflow: auto;
+        left: 200px;
+        right: 0px;
+        bottom: 0px;
+        display: flex;
+        justify-content: center;
+        background-color: rgb(245, 245, 245);
+        max-height: 150px;
+    }
+
+    .form_chat {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin: 10px;
+        width: 50%;
+        border-radius: 8px;
+    }
+
+    .form_chat_item {
+        flex-grow: 1;
+        overflow-y: auto;
+        border-radius: 8px;
+        border: 1px solid rgb(204, 204, 204);
+    }
+
     ::-webkit-scrollbar {
         width: 8px;
     }
