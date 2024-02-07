@@ -1,14 +1,12 @@
 require('dotenv').config()
 require('express-async-errors')
 const express = require('express')
-const app = express()
+const { app, server } = require('./socket.io')
 
 // db
 const connectDB = require('./db/connectDB')
 
 // package
-const { createServer } = require('http')
-const { Server } = require('socket.io')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 
@@ -17,9 +15,6 @@ const { notFoundMidd, errHandleMidd } = require('./middleware')
 
 // routes
 const initRoute = require('./routes')
-
-const server = createServer(app)
-const io = new Server(server)
 
 app.use(cors())
 app.use(express.json())
