@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const { currentUser } = require('../controllers/user')
+const { getAllUserOnline } = require('../controllers/user')
 
-router.route('/my').get(currentUser)
+router.route('/').get(getAllUserOnline)
 
 module.exports = router

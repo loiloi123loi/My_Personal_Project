@@ -2,6 +2,7 @@ import { useState } from 'react'
 import GenderCheckbox from './GenderCheckbox'
 import { Link } from 'react-router-dom'
 import toast from 'react-hot-toast'
+import useRegister from '../../hooks/useRegister'
 
 const initialState = {
     fullName: '',
@@ -12,6 +13,7 @@ const initialState = {
 }
 const Register = () => {
     const [inputs, setInputs] = useState(initialState)
+    const { loading, register } = useRegister()
     const handleChange = (e) => {
         const name = e.target.name
         const value = e.target.value
@@ -26,14 +28,14 @@ const Register = () => {
             gender,
         })
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const { gender } = inputs
         if (!gender) {
             toast.error('Please provide your gender')
             return
         }
-        
+        await register(inputs)
     }
 
     return (
@@ -118,8 +120,15 @@ const Register = () => {
                         Already have an account?
                     </Link>
                     <div>
-                        <button className="btn btn-block btn-sm mt-2 border border-slate-700">
-                            Sign Up
+                        <button
+                            className="btn btn-block btn-sm mt-2 border border-slate-700"
+                            disabled={loading}
+                        >
+                            {loading ? (
+                                <span className="loading loading-spinner"></span>
+                            ) : (
+                                'Sign Up'
+                            )}
                         </button>
                     </div>
                 </form>

@@ -4,7 +4,12 @@ const { createServer } = require('http')
 const { Server } = require('socket.io')
 
 const server = createServer(app)
-const io = new Server(server)
+const io = new Server(server, {
+    cors: {
+        origin: [process.env.FRONT_END_URL, true],
+        credentials: true,
+    },
+})
 
 const socketMap = {}
 

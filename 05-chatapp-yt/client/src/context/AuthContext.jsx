@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from 'react'
+import { getUserFromLocalStorage } from '../utils/localStorage'
 
 export const AuthContext = createContext()
 
@@ -7,9 +8,7 @@ export const useAuthContext = () => {
 }
 
 export const AuthContextProvider = ({ children }) => {
-    const [authUser, setAuthUser] = useState(
-        JSON.parse(localStorage.getItem('chat-user')) || null
-    )
+    const [authUser, setAuthUser] = useState(getUserFromLocalStorage())
     return (
         <AuthContext.Provider value={{ authUser, setAuthUser }}>
             {children}

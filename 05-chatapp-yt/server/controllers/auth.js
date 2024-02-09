@@ -2,10 +2,10 @@ const { StatusCodes } = require('http-status-codes')
 const CustomError = require('../errors')
 const User = require('../models/User')
 const { createTokenUser, attachCookiesToResponse } = require('../utils')
+const { io } = require('../socket.io')
 
 const register = async (req, res) => {
     const { fullName, username, password, confirmPassword, gender } = req.body
-    console.log({ fullName, username, password, confirmPassword, gender })
     if (!fullName || !username || !password || !confirmPassword || !gender) {
         throw new CustomError.BadRequestError('Please provide all fields')
     }
@@ -31,6 +31,8 @@ const register = async (req, res) => {
     })
     const token = createTokenUser(user)
     attachCookiesToResponse({ res, user: token })
+    delete user.password
+    io.emit('newConversation', user)
     res.status(StatusCodes.CREATED).json({
         user: token,
     })

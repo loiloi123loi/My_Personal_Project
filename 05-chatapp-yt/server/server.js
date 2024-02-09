@@ -16,7 +16,12 @@ const { notFoundMidd, errHandleMidd } = require('./middleware')
 // routes
 const initRoute = require('./routes')
 
-app.use(cors())
+app.use(
+    cors({
+        origin: [process.env.FRONT_END_URL, true],
+        credentials: true,
+    })
+)
 app.use(express.json())
 app.use(cookieParser(process.env.JWT_SECRET))
 

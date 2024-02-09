@@ -42,6 +42,9 @@ const getMessage = async (req, res) => {
             $all: [senderId, receiverId],
         },
     }).populate('messages')
+    if (!conversation) {
+        return res.status(200).json([])
+    }
     const { messages } = conversation
     res.status(StatusCodes.OK).json(messages)
 }
