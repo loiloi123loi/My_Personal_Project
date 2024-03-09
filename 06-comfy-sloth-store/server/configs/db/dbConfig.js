@@ -1,7 +1,7 @@
 module.exports = {
     username: 'root',
     password: '',
-    database: 'chatdb',
+    database: 'store',
     host: 'localhost',
     port: 3306,
     dialect: 'mysql',

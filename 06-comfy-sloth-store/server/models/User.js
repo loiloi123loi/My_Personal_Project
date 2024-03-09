@@ -2,75 +2,100 @@ const { DataTypes } = require('sequelize')
 const { sequelize } = require('../configs/db/connect')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
+const CustomError = require('../errors')
 
-const User = sequelize.define('User', {
-    fullName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            notEmpty: {
-                args: true,
-                msg: 'Tên không được để trống',
+const User = sequelize.define(
+    'User',
+    {
+        fullName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: {
+                    args: true,
+                    msg: 'Name cannot be blank',
+                },
+                len: {
+                    args: [1, 20],
+                    msg: 'Name must be from 1 to 20 characters',
+                },
+                isAlphaSpace: function (value) {
+                    if (!validator.isAlpha(value.replace(' ', ''))) {
+                        throw new Error(
+                            'The name must contain letters and spaces'
+                        )
+                    }
+                },
             },
-            len: {
-                args: [1, 20],
-                msg: 'Tên phải từ 1 đến 20 kí tự',
-            },
-            isAlpha: {
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: {
                 args: true,
-                msg: 'Tên chỉ gồm chữ và dấu cách',
+                msg: 'Email already exists on the system',
+            },
+            validate: {
+                notEmpty: {
+                    args: true,
+                    msg: 'Please provide email',
+                },
+                isEmail: {
+                    args: true,
+                    msg: 'Invalid email',
+                },
+            },
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: {
+                    args: true,
+                    msg: 'Please provide your password',
+                },
+                len: {
+                    args: [6, 32],
+                    msg: 'Password from 8 to 32 characters, including lowercase letters, uppercase letters, numbers and special characters',
+                },
+            },
+        },
+        role: {
+            type: DataTypes.ENUM,
+            values: ['admin', 'user'],
+            defaultValue: 'user',
+            allowNull: false,
+            validate: {
+                isIn: {
+                    args: [['admin', 'user']],
+                    msg: 'Only admin or user roles',
+                },
             },
         },
     },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: {
-            args: true,
-            msg: 'Email đã tồn tại trên hệ thống',
-        },
-        validate: {
-            notEmpty: {
-                args: true,
-                msg: 'Vui lòng cung cấp email',
-            },
-            isEmail: {
-                args: true,
-                msg: 'Email không hợp lệ',
-            },
-        },
-    },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            notEmpty: {
-                args: true,
-                msg: 'Vui lòng cung cấp mật khẩu',
-            },
-            len: {
-                args: [60, 320],
-                msg: 'Mật khẩu từ 6 đến 32 kí tự, bao gồm chữ thường, chữ hoa, số và kí tự đặc biệt',
-            },
-        },
-    },
-    role: {
-        type: DataTypes.ENUM,
-        values: ['admin', 'user'],
-        defaultValue: 'user',
-    },
-})
+    {
+        paranoid: true,
+        deletedAt: true,
+        createdAt: true,
+        updatedAt: true,
+    }
+)
 User.beforeSave(async function (user, options) {
     if (user.changed('password')) {
         const isStrong = validator.isStrongPassword(user.password)
         if (!isStrong) {
-            throw new Error(
-                'Mật khẩu phải chứa ít nhất 8 ký tự và bao gồm ít nhất một chữ cái và một ký tự số.'
-            )
+            throw new CustomError.BadRequestError('Invalid fields value', {
+                password:
+                    'Password from 8 to 32 characters, including lowercase letters, uppercase letters, numbers and special characters',
+            })
         }
         const salt = await bcrypt.genSalt(10)
         user.password = await bcrypt.hash(user.password, salt)
     }
 })
+User.prototype.comparePassword = async function (plainPassword) {
+    const isMatch = await bcrypt.compare(plainPassword, this.password)
+    return isMatch
+}
 
 module.exports = User

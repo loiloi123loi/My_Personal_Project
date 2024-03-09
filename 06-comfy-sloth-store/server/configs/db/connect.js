@@ -8,7 +8,7 @@ const connectDB = () => {
         .authenticate()
         .then(() => {
             sequelize.sync({
-                force: true,
+                alter: true,
             })
             console.log(`Connect database success`)
         })
