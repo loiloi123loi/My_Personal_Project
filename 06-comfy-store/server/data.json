@@ -1,0 +1,13 @@
+{
+    "orderAddress": "6614b4b50345450f40e2c203",
+    "orderItems": [
+        {
+            "amount": 1,
+            "product": 9
+        },
+        {
+            "amount": 1,
+            "product": 10
+        }
+    ]
+}
