@@ -1,0 +1,4 @@
+PORT = 5000
+DB_USERNAME = loiloi123loi
+DB_PASSWORD = 123
+DB_URI = 'mongodb+srv://loiloi123loi:123@nodejs.kzpdxv2.mongodb.net/Twitter_Clone?retryWrites=true&w=majority&appName=Nodejs'
