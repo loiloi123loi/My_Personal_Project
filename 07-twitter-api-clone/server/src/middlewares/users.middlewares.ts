@@ -106,6 +106,7 @@ const forgotPasswordSchema: ParamSchema = {
           })
         }
         req.user = user
+        req.decoded_forgot_password_token = decoded_forgot_password_token
       } catch (error) {
         if (error instanceof JsonWebTokenError) {
           throw new ErrorWithStatus({
@@ -345,6 +346,17 @@ export const emailVerifyTokenValidator = validate(
                 status: 400
               })
             }
+            const decoded_email_verify_token = await verifyToken({
+              token: value,
+              secretOrPublicKey: process.env.JWT_SECRET_EMAIL_VERIFY_TOKEN
+            })
+            if (decoded_email_verify_token.user_id !== (req as Request).user?._id?.toString()) {
+              throw new ErrorWithStatus({
+                message: USERS_MESSAGES.INVALID_EMAIL_VERIFY_TOKEN,
+                status: 400
+              })
+            }
+            req.decoded_email_verify_token = decoded_email_verify_token
             return true
           }
         }
@@ -555,3 +567,12 @@ export const unfollowValidator = validate(
     ['params']
   )
 )
+
+export const isUserLoggedInValidator = (middleware: (req: Request, res: Response, next: NextFunction) => void) => {
+  return (req: Request, res: Response, next: NextFunction) => {
+    if (req.headers.authorization) {
+      return middleware(req, res, next)
+    }
+    next()
+  }
+}

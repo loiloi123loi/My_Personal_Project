@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import '@vidstack/react/player/styles/base.css'
+import { MediaPlayer, MediaProvider } from '@vidstack/react'
 
 const getGoogleAuthUrl = () => {
   const { VITE_GOOGLE_CLIENT_ID, VITE_GOOGLE_REDIRECT_URIS } = import.meta.env
@@ -37,9 +39,17 @@ const Home = () => {
 
   return (
     <>
-      <video width='900' controls autoPlay>
+      {/* <video width='900' controls autoPlay>
         <source src='http://localhost:5000/api/v1/static/video-stream/f95357565eae63a17150eb401.mp4' type='video/mp4' />
-      </video>
+      </video> */}
+      <MediaPlayer
+        title='TEST'
+        src='http://localhost:5000/api/v1/static/video-hls/vEGeycuiEI1PTyRzTWG8l/master.m3u8'
+        autoPlay
+        controls
+      >
+        <MediaProvider />
+      </MediaPlayer>
       <h1>Google OAuth 2.0</h1>
       {/* <button onClick={handleGoogleLogin} className='btn'>
           Click to login google

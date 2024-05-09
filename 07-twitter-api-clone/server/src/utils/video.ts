@@ -1,62 +1,73 @@
 import path from 'path'
+import { exec } from 'child_process'
+import { stdout } from 'process'
 
 const MAXIMUM_BITRATE_720P = 5 * 10 ** 6 // 5Mbps
 const MAXIMUM_BITRATE_1080P = 8 * 10 ** 6 // 8Mbps
 const MAXIMUM_BITRATE_1440P = 16 * 10 ** 6 // 16Mbps
 
+const runCommand = async (command: string) => {
+  return new Promise<{ stdout: string }>((resolve, reject) => {
+    exec(command, (err, stdout, stderr) => {
+      if (err) {
+        return reject(err)
+      }
+      resolve({ stdout: stdout.trim() })
+    })
+  })
+}
+
 export const checkVideoHasAudio = async (filePath: string) => {
-  const { $ } = await import('zx')
   const slash = (await import('slash')).default
-  const { stdout } = await $`ffprobe ${[
-    '-v',
-    'error',
-    '-select_streams',
-    'a:0',
-    '-show_entries',
-    'stream=codec_type',
-    '-of',
-    'default=nw=1:nk=1',
-    slash(filePath)
-  ].join(' ')}`
+  const { stdout } = await runCommand(
+    `ffprobe ${[
+      '-v',
+      'error',
+      '-select_streams',
+      'a:0',
+      '-show_entries',
+      'stream=codec_type',
+      '-of',
+      'default=nw=1:nk=1',
+      slash(filePath)
+    ].join(' ')}`
+  )
   return stdout.trim() === 'audio'
 }
 
 const getBitrate = async (filePath: string) => {
-  const { $ } = await import('zx')
   const slash = (await import('slash')).default
-  const str = `ffprobe ${[
-    '-v',
-    'error',
-    '-select_streams',
-    'v:0',
-    '-show_entries',
-    'stream=bit_rate',
-    '-of',
-    'default=nw=1:nk=1',
-    slash(filePath)
-  ]}`
-  // console.log(str)
-  const name = '-version'
-  const { stdout } = await $`ffprobe ${name}`
-  console.log(stdout.trim())
+  const { stdout } = await runCommand(
+    `ffprobe ${[
+      '-v',
+      'error',
+      '-select_streams',
+      'v:0',
+      '-show_entries',
+      'stream=bit_rate',
+      '-of',
+      'default=nw=1:nk=1',
+      slash(filePath)
+    ].join(' ')}`
+  )
   return Number(stdout.trim())
 }
 
 const getResolution = async (filePath: string) => {
-  const { $ } = await import('zx')
   const slash = (await import('slash')).default
-
-  const { stdout } = await $`ffprobe ${[
-    '-v',
-    'error',
-    '-select_streams',
-    'v:0',
-    '-show_entries',
-    'stream=width,height',
-    '-of',
-    'csv=s=x:p=0',
-    slash(filePath)
-  ].join(' ')}`
+  const { stdout } = await runCommand(
+    `ffprobe ${[
+      '-v',
+      'error',
+      '-select_streams',
+      'v:0',
+      '-show_entries',
+      'stream=width,height',
+      '-of',
+      'csv=s=x:p=0',
+      slash(filePath)
+    ].join(' ')}`
+  )
   const resolution = stdout.trim().split('x')
   const [width, height] = resolution
   return {
@@ -96,9 +107,7 @@ const encodeMax720 = async ({
   outputSegmentPath,
   resolution
 }: EncodeByResolution) => {
-  const { $ } = await import('zx')
   const slash = (await import('slash')).default
-
   const args = [
     '-y',
     '-i',
@@ -129,9 +138,9 @@ const encodeMax720 = async ({
     '-var_stream_map'
   )
   if (isHasAudio) {
-    args.push('v:0,a:0')
+    args.push('"v:0,a:0"')
   } else {
-    args.push('v:0')
+    args.push('"v:0"')
   }
   args.push(
     '-master_pl_name',
@@ -146,8 +155,8 @@ const encodeMax720 = async ({
     slash(outputSegmentPath),
     slash(outputPath)
   )
-
-  await $`ffmpeg ${args}`
+  // console.log(`ffmpeg ${args.join(' ')}`)
+  await runCommand(`ffmpeg ${args.join(' ')}`)
   return true
 }
 
@@ -159,9 +168,7 @@ const encodeMax1080 = async ({
   outputSegmentPath,
   resolution
 }: EncodeByResolution) => {
-  const { $ } = await import('zx')
   const slash = (await import('slash')).default
-
   const args = ['-y', '-i', slash(inputPath), '-preset', 'veryslow', '-g', '48', '-crf', '17', '-sc_threshold', '0']
   if (isHasAudio) {
     args.push('-map', '0:0', '-map', '0:1', '-map', '0:0', '-map', '0:1')
@@ -186,9 +193,9 @@ const encodeMax1080 = async ({
     '-var_stream_map'
   )
   if (isHasAudio) {
-    args.push('v:0,a:0 v:1,a:1')
+    args.push('"v:0,a:0 v:1,a:1"')
   } else {
-    args.push('v:0 v:1')
+    args.push('"v:0 v:1"')
   }
   args.push(
     '-master_pl_name',
@@ -203,8 +210,8 @@ const encodeMax1080 = async ({
     slash(outputSegmentPath),
     slash(outputPath)
   )
-
-  await $`ffmpeg ${args}`
+  // console.log(`ffmpeg ${args.join(' ')}`)
+  await runCommand(`ffmpeg ${args.join(' ')}`)
   return true
 }
 
@@ -216,9 +223,7 @@ const encodeMax1440 = async ({
   outputSegmentPath,
   resolution
 }: EncodeByResolution) => {
-  const { $ } = await import('zx')
   const slash = (await import('slash')).default
-
   const args = ['-y', '-i', slash(inputPath), '-preset', 'veryslow', '-g', '48', '-crf', '17', '-sc_threshold', '0']
   if (isHasAudio) {
     args.push('-map', '0:0', '-map', '0:1', '-map', '0:0', '-map', '0:1', '-map', '0:0', '-map', '0:1')
@@ -249,9 +254,9 @@ const encodeMax1440 = async ({
     '-var_stream_map'
   )
   if (isHasAudio) {
-    args.push('v:0,a:0 v:1,a:1 v:2,a:2')
+    args.push('"v:0,a:0 v:1,a:1 v:2,a:2"')
   } else {
-    args.push('v:0 v:1 v2')
+    args.push('"v:0 v:1 v2"')
   }
   args.push(
     '-master_pl_name',
@@ -266,8 +271,8 @@ const encodeMax1440 = async ({
     slash(outputSegmentPath),
     slash(outputPath)
   )
-
-  await $`ffmpeg ${args}`
+  // console.log(`ffmpeg ${args.join(' ')}`)
+  await runCommand(`ffmpeg ${args.join(' ')}`)
   return true
 }
 
@@ -279,9 +284,7 @@ const encodeMaxOriginal = async ({
   outputSegmentPath,
   resolution
 }: EncodeByResolution) => {
-  const { $ } = await import('zx')
   const slash = (await import('slash')).default
-
   const args = ['-y', '-i', slash(inputPath), '-preset', 'veryslow', '-g', '48', '-crf', '17', '-sc_threshold', '0']
   if (isHasAudio) {
     args.push('-map', '0:0', '-map', '0:1', '-map', '0:0', '-map', '0:1', '-map', '0:0', '-map', '0:1')
@@ -312,9 +315,9 @@ const encodeMaxOriginal = async ({
     '-var_stream_map'
   )
   if (isHasAudio) {
-    args.push('v:0,a:0 v:1,a:1 v:2,a:2')
+    args.push('"v:0,a:0 v:1,a:1 v:2,a:2"')
   } else {
-    args.push('v:0 v:1 v2')
+    args.push('"v:0 v:1 v2"')
   }
   args.push(
     '-master_pl_name',
@@ -329,8 +332,8 @@ const encodeMaxOriginal = async ({
     slash(outputSegmentPath),
     slash(outputPath)
   )
-
-  await $`ffmpeg ${args}`
+  // console.log(`ffmpeg ${args.join(' ')}`)
+  await runCommand(`ffmpeg ${args.join(' ')}`)
   return true
 }
 

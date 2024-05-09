@@ -60,8 +60,8 @@ export const refreshTokenController = async (
   res: Response
 ) => {
   const { refresh_token } = req.body
-  const { user_id, verify } = req.decoded_refresh_token as TokenPayload
-  const result = await usersService.refreshToken({ user_id, verify, refresh_token })
+  const { user_id, verify, exp } = req.decoded_refresh_token as TokenPayload
+  const result = await usersService.refreshToken({ user_id, verify, refresh_token, exp })
   res.status(HTTP_STATUS.OK).json({
     message: USERS_MESSAGES.REFRESH_TOKEN_SUCCESS,
     result
@@ -70,9 +70,7 @@ export const refreshTokenController = async (
 
 export const verifyEmailController = async (req: Request<ParamsDictionary, any, VerifyEmailReqBody>, res: Response) => {
   const { user_id } = req.decoded_authorization as TokenPayload
-  const user = await databaseService.users.findOne({
-    _id: new ObjectId(user_id)
-  })
+  const user = await databaseService.users.findOne({ _id: new ObjectId(user_id) })
   if (!user) {
     return res.status(HTTP_STATUS.NOT_FOUND).json({
       message: USERS_MESSAGES.USER_NOT_FOUND

@@ -39,6 +39,15 @@ export const uploadVideoHLSController = async (req: Request, res: Response) => {
   })
 }
 
+export const videoStatusController = async (req: Request, res: Response) => {
+  const { id } = req.params
+  const url = await mediasService.getVideoStatus(id)
+  res.status(HTTP_STATUS.OK).json({
+    message: USERS_MESSAGES.GET_VIDEO_STATUS_SUCCESS,
+    result: url
+  })
+}
+
 export const serveVideoStreamController = async (req: Request, res: Response) => {
   const range = req.headers.range
   if (!range) {
@@ -60,4 +69,22 @@ export const serveVideoStreamController = async (req: Request, res: Response) =>
   res.writeHead(HTTP_STATUS.PARTIAL_CONTENT, headers)
   const videoStream = fs.createReadStream(videoPath, { start, end })
   videoStream.pipe(res)
+}
+
+export const serveM3u8Controller = (req: Request, res: Response) => {
+  const { id } = req.params
+  res.sendFile(path.resolve(UPLOAD_VIDEO_DIR, id, 'master.m3u8'), (err) => {
+    if (err) {
+      res.status(404).send('Not Found')
+    }
+  })
+}
+
+export const serveSegmentController = (req: Request, res: Response) => {
+  const { id, v, segment } = req.params
+  res.sendFile(path.resolve(UPLOAD_VIDEO_DIR, id, v, segment), (err) => {
+    if (err) {
+      res.status(404).send('Not Found')
+    }
+  })
 }
