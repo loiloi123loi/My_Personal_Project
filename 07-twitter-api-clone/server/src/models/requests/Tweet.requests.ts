@@ -15,8 +15,11 @@ export interface GetTweetReqParams {
   tweet_id: string
 }
 
-export interface GetTweetChilrenReqQuery {
+export interface GetTweetChilrenReqQuery extends PaginationReqQuery {
   tweet_type: string
+}
+
+export interface PaginationReqQuery {
   limit: string
   page: string
 }

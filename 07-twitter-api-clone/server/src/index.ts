@@ -13,13 +13,15 @@ import { UPLOAD_VIDEO_DIR } from './constants/dir'
 import tweetsRouter from './routes/tweets.routes'
 import bookmarksRouter from './routes/bookmarks.routes'
 import likesRouter from './routes/likes.routes'
+import searchRouter from './routes/search.routes'
 
 databaseService.connect().then(async () => {
   await Promise.all([
     databaseService.indexUsers(),
     databaseService.indexRefreshTokens(),
     databaseService.indexVideoStatus(),
-    databaseService.indexFollowers()
+    databaseService.indexFollowers(),
+    databaseService.indexTweets()
   ])
 })
 initFolder()
@@ -30,6 +32,7 @@ app.use('/api/v1/medias', mediasRouter)
 app.use('/api/v1/tweets', tweetsRouter)
 app.use('/api/v1/bookmarks', bookmarksRouter)
 app.use('/api/v1/likes', likesRouter)
+app.use('/api/v1/search', searchRouter)
 app.use('/api/v1/static', staticRouter)
 app.use('/api/v1/static/video', express.static(UPLOAD_VIDEO_DIR))
 app.use(defaultErrorHandler)

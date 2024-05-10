@@ -39,7 +39,7 @@ class DatabaseService {
   }
 
   async indexRefreshTokens() {
-    const exists = await this.users.indexExists(['exp_1', 'token_1'])
+    const exists = await this.refreshTokens.indexExists(['exp_1', 'token_1'])
     if (!exists) {
       this.refreshTokens.createIndex({ token: 1 })
       this.refreshTokens.createIndex({ exp: 1 }, { expireAfterSeconds: 0 })
@@ -47,16 +47,23 @@ class DatabaseService {
   }
 
   async indexVideoStatus() {
-    const exists = await this.users.indexExists(['name_1'])
+    const exists = await this.videoStatus.indexExists(['name_1'])
     if (!exists) {
       this.videoStatus.createIndex({ name: 1 })
     }
   }
 
   async indexFollowers() {
-    const exists = await this.users.indexExists(['user_id_1_followed_user_id_1'])
+    const exists = await this.followers.indexExists(['user_id_1_followed_user_id_1'])
     if (!exists) {
       this.followers.createIndex({ user_id: 1, followed_user_id: 1 })
+    }
+  }
+
+  async indexTweets() {
+    const exists = await this.tweets.indexExists(['content_text'])
+    if (!exists) {
+      this.tweets.createIndex({ content: 'text' }, { default_language: 'none' })
     }
   }
 

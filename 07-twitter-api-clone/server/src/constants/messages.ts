@@ -96,7 +96,8 @@ export const TWEETS_MESSAGES = {
   TWEET_NOT_FOUND: 'Tweet not found',
   TWEET_IS_NOT_PUBLIC: 'Tweet is not public',
   GET_TWEET_SUCCESS: 'Get tweet success',
-  GET_TWEET_CHILDREN_SUCCESS: 'Get tweet children success'
+  GET_TWEET_CHILDREN_SUCCESS: 'Get tweet children success',
+  GET_NEW_FEEDS_SUCCESS: 'Get new feed success'
 } as const
 
 export const BOOKMARK_MESSAGES = {
@@ -107,4 +108,8 @@ export const BOOKMARK_MESSAGES = {
 export const LIKES_MESSAGES = {
   LIKE_SUCCESSFULLY: 'Like successfully',
   UNLIKE_SUCCESSFULLY: 'Unlike successfully'
+} as const
+
+export const SEARCH_MESSAGES = {
+  SEARCH_SUCCESS: 'Search success'
 } as const
