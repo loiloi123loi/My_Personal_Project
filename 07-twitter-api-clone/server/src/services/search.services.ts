@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb'
 import databaseService from './database.services'
-import { MediaType, MediaTypeQuery, TweetAudience, TweetType } from '~/constants/enums'
+import { MediaType, MediaTypeQuery, PeopleFollow, TweetAudience, TweetType } from '~/constants/enums'
 
 class SearchSerivce {
   async search({
@@ -8,13 +8,15 @@ class SearchSerivce {
     limit,
     page,
     user_id,
-    media_type
+    media_type,
+    people_follow
   }: {
     content: string
     limit: number
     page: number
     user_id: string
-    media_type: MediaTypeQuery
+    media_type?: MediaTypeQuery
+    people_follow?: PeopleFollow
   }) {
     const $match: any = {
       $text: {
@@ -27,6 +29,22 @@ class SearchSerivce {
       $match['medias.type'] = {
         $in: [MediaType.Video, MediaType.HLS]
       }
+    }
+    if (people_follow && people_follow === '1') {
+      const followed_user_ids = await databaseService.followers
+        .find(
+          { user_id: new ObjectId(user_id) },
+          {
+            projection: {
+              _id: 0,
+              followed_user_id: 1
+            }
+          }
+        )
+        .toArray()
+      const ids = followed_user_ids.map((item) => item.followed_user_id)
+      ids.push(new ObjectId(user_id))
+      $match['user_id'] = { $in: ids }
     }
     const [tweets, total] = await Promise.all([
       databaseService.tweets
@@ -257,7 +275,7 @@ class SearchSerivce {
     })
     return {
       tweets,
-      total: total.length > 0 ? total[0].total : 0
+      total: total[0]?.total || 0
     }
   }
 }
