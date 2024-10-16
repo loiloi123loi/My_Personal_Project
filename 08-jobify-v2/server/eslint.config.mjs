@@ -1,4 +1,5 @@
 import pluginJs from '@eslint/js'
+import eslintPluginImport from 'eslint-plugin-import'
 import eslintPluginPrettier from 'eslint-plugin-prettier'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
@@ -10,7 +11,8 @@ export default [
   ...tseslint.configs.recommended,
   {
     plugins: {
-      prettier: eslintPluginPrettier
+      prettier: eslintPluginPrettier,
+      import: eslintPluginImport
     },
     rules: {
       '@typescript-eslint/no-explicit-any': 'warn',
@@ -27,6 +29,17 @@ export default [
           singleQuote: true,
           printWidth: 120,
           jsxSingleQuote: true
+        }
+      ],
+      'import/order': [
+        'error',
+        {
+          groups: ['builtin', 'external', 'internal', ['parent', 'sibling']],
+          'newlines-between': 'never',
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true
+          }
         }
       ]
     },
