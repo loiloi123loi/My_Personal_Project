@@ -6,7 +6,7 @@ import BaseError from '@/models/errors/Base.errors'
 
 export const errorHandler = (err: Error | BaseError, req: Request, res: Response, next: NextFunction) => {
   if (err instanceof BaseError) {
-    res.status(err.status).json(omit(err, ['status']))
+    res.status(err.status || HTTP_STATUS.INTERNAL_SERVER_ERROR).json(omit(err, ['status']))
     return
   }
   Object.getOwnPropertyNames(err).forEach((key) => {
