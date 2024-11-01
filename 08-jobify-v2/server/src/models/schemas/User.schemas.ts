@@ -9,6 +9,7 @@ interface IUser {
   name?: string
   username?: string
   verify?: VerifyStatus
+  forgot_password_token?: string
   bio?: string
   location?: string
   avatar?: string
@@ -25,6 +26,7 @@ export default class User {
   name: string
   username: string
   verify: VerifyStatus
+  forgot_password_token: string
   bio: string
   location: string
   avatar: string
@@ -40,6 +42,7 @@ export default class User {
     name,
     username,
     verify,
+    forgot_password_token,
     bio,
     location,
     avatar,
@@ -55,6 +58,7 @@ export default class User {
     this.name = name || ''
     this.username = username || ''
     this.verify = verify || VerifyStatus.UNVERIFIED
+    this.forgot_password_token = forgot_password_token || ''
     this.bio = bio || ''
     this.location = location || ''
     this.avatar = avatar || ''

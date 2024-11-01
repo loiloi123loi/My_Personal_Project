@@ -1,6 +1,6 @@
-import BaseError from './Base.errors'
 import { HTTP_STATUS } from '@/constants/httpStatus'
 import { COMMON_MESSAGES } from '@/constants/messages'
+import BaseError from '@/models/errors/Base.errors'
 
 type ErrorType = Record<
   string,
