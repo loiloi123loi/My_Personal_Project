@@ -1,8 +1,8 @@
 import { ObjectId } from 'mongodb'
-import databaseService from './database.services'
 import { TokenType, VerifyStatus } from '@/constants/enums'
 import { RegisterReqBody } from '@/models/requests/User.requests'
 import User from '@/models/schemas/User.schemas'
+import databaseService from '@/services/database.services'
 import { hashPassword } from '@/utils/crypto'
 import { signToken } from '@/utils/jwt'
 

@@ -1,6 +1,6 @@
 import cors from 'cors'
 import express from 'express'
-import createRoutes from './routers'
+import createRoutes from '@/routers'
 import databaseService from '@/services/database.services'
 import logger from '@/utils/logger'
 const app = express()
