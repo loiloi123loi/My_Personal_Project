@@ -1,4 +1,9 @@
+import { ObjectId } from 'mongodb'
 import { TokenType, VerifyStatus } from '@/constants/enums'
+import { RegisterReqBody } from '@/models/requests/User.requests'
+import User from '@/models/schemas/User.schemas'
+import databaseService from '@/services/database.services'
+import { hashPassword } from '@/utils/crypto'
 import { signToken } from '@/utils/jwt'
 
 class UsersService {
@@ -41,6 +46,31 @@ class UsersService {
         verify
       })
     ])
+  }
+
+  async checkEmailExist(email: string) {
+    const user = await databaseService.users.findOne({ email })
+    return Boolean(user)
+  }
+
+  async register(payload: RegisterReqBody) {
+    const user_id = new ObjectId()
+    await databaseService.users.insertOne(
+      new User({
+        ...payload,
+        date_of_birth: new Date(payload.date_of_birth),
+        password: hashPassword(payload.password),
+        username: 'User' + user_id
+      })
+    )
+    const [access_token, refresh_token] = await this.signAccessAndRefreshToken({
+      user_id: user_id.toString(),
+      verify: VerifyStatus.UNVERIFIED
+    })
+    return {
+      access_token,
+      refresh_token
+    }
   }
 
   async login({ user_id, verify }: { user_id: string; verify: VerifyStatus }) {

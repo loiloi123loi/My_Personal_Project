@@ -1,4 +1,4 @@
-import User from './models/schemas/User.schemas'
+import User from '@/models/schemas/User.schemas'
 
 declare module 'express' {
   interface Request {
