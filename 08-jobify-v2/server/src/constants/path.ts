@@ -6,5 +6,6 @@ export const ROUTE = {
 
 export const USER_PATH = {
   REGISTER: '/register',
-  LOGIN: '/login'
+  LOGIN: '/login',
+  VERIFY_FORGOT_PASSWORD: '/verify-forgot-password'
 } as const

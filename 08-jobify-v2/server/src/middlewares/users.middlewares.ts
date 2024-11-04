@@ -1,6 +1,11 @@
 import { checkSchema } from 'express-validator'
 import { USERS_MESSAGES } from '@/constants/messages'
-import { confirmPasswordSchema, dateOfBirthSchema, passwordSchema } from '@/models/validSchemas/users.validSchemas'
+import {
+  confirmPasswordSchema,
+  dateOfBirthSchema,
+  forgotPasswordSchema,
+  passwordSchema
+} from '@/models/validSchemas/users.validSchemas'
 import databaseService from '@/services/database.services'
 import usersService from '@/services/users.services'
 import { hashPassword } from '@/utils/crypto'
@@ -93,6 +98,15 @@ export const loginValidator = validate(
         }
       },
       password: passwordSchema
+    },
+    ['body']
+  )
+)
+
+export const verifyForgotPasswordValidator = validate(
+  checkSchema(
+    {
+      forgot_password_token: forgotPasswordSchema
     },
     ['body']
   )

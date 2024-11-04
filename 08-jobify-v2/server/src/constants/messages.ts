@@ -28,5 +28,10 @@ export const USERS_MESSAGES = {
   LOCATION_LENGTH_MUST_BE_FROM_1_TO_50: 'Location is required',
   DATE_OF_BIRTH_IS_REQUIRED: 'Date of birth is required',
   DATE_OF_BIRTH_MUST_BE_ISO8601: 'Date of birth must be ISO8601',
-  REGISTER_SUCCESS: 'Register success'
+  REGISTER_SUCCESS: 'Register success',
+  FORGOT_PASSWORD_TOKEN_IS_REQUIRED: 'Forgot password token is required',
+  FORGOT_PASSWORD_TOKEN_MUST_BE_A_STRING: 'Forgot password token must be a string',
+  FORGOT_PASSWORD_TOKEN_IS_INVALID: 'Forgot password token is invalid',
+  USER_NOT_FOUND: 'User not found',
+  VERIFY_FORGOT_PASSWORD_SUCCESS: 'Verify forgot password token success'
 } as const
