@@ -3,15 +3,15 @@ import { VerifyStatus } from '@/constants/enums'
 
 interface IUser {
   _id?: ObjectId
+  name: string
   email: string
   date_of_birth: Date
   password: string
-  name?: string
+  location: string
   username?: string
   verify?: VerifyStatus
   forgot_password_token?: string
   bio?: string
-  location?: string
   avatar?: string
   cover_photo?: string
   created_at?: Date
@@ -55,7 +55,7 @@ export default class User {
     this.email = email
     this.date_of_birth = date_of_birth
     this.password = password
-    this.name = name || ''
+    this.name = name
     this.username = username || ''
     this.verify = verify || VerifyStatus.UNVERIFIED
     this.forgot_password_token = forgot_password_token || ''
