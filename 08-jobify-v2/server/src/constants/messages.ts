@@ -4,8 +4,12 @@ export const COMMON_MESSAGES = {
 } as const
 
 export const USERS_MESSAGES = {
+  NAME_IS_REQUIRED: 'Name is required',
+  NAME_MUST_BE_A_STRING: 'Name must be a string',
+  NAME_LENGTH_MUST_BE_FROM_1_TO_50: 'Name length must be from 1 to 50',
   EMAIL_IS_REQUIRED: 'Email is required',
   EMAIL_IS_INVALID: 'Email is invalid',
+  EMAIL_ALREADY_EXISTS: 'Email already exists',
   PASSWORD_IS_REQUIRED: 'Password is required',
   PASSWORD_MUST_BE_A_STRING: 'Password must be a string',
   PASSWORD_LENGTH_MUST_BE_FROM_6_TO_50: 'Password length must be from 6 to 50',
@@ -21,5 +25,11 @@ export const USERS_MESSAGES = {
   FORGOT_PASSWORD_TOKEN_MUST_BE_A_STRING: 'Forgot password token must be a string',
   FORGOT_PASSWORD_TOKEN_IS_INVALID: 'Forgot password token is invalid',
   RESET_PASSWORD_SUCCESS: 'Reset password success',
-  USER_NOT_FOUND: 'User not found'
+  USER_NOT_FOUND: 'User not found',
+  LOCATION_IS_REQUIRED: 'Location is required',
+  LOCATION_MUST_BE_A_STRING: 'Location is required',
+  LOCATION_LENGTH_MUST_BE_FROM_1_TO_50: 'Location is required',
+  DATE_OF_BIRTH_IS_REQUIRED: 'Date of birth is required',
+  DATE_OF_BIRTH_MUST_BE_ISO8601: 'Date of birth must be ISO8601',
+  REGISTER_SUCCESS: 'Register success'
 } as const

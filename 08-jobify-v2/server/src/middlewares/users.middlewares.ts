@@ -5,19 +5,67 @@ import { ObjectId } from 'mongodb'
 import { HTTP_STATUS } from '@/constants/httpStatus'
 import { USERS_MESSAGES } from '@/constants/messages'
 import BaseError from '@/models/errors/Base.errors'
-import { confirmPasswordSchema, emailSchema, passwordSchema } from '@/models/validSchemas/users.validSchemas'
+import {
+  confirmPasswordSchema,
+  dateOfBirthSchema,
+  emailSchema,
+  passwordSchema
+} from '@/models/validSchemas/users.validSchemas'
 import databaseService from '@/services/database.services'
+import usersService from '@/services/users.services'
 import { verifyToken } from '@/utils/jwt'
 import { validate } from '@/utils/validation'
 
 export const registerValidator = validate(
   checkSchema(
     {
+      name: {
+        notEmpty: {
+          errorMessage: USERS_MESSAGES.NAME_IS_REQUIRED
+        },
+        isString: {
+          errorMessage: USERS_MESSAGES.NAME_MUST_BE_A_STRING
+        },
+        trim: true,
+        isLength: {
+          options: {
+            min: 1,
+            max: 50
+          },
+          errorMessage: USERS_MESSAGES.NAME_LENGTH_MUST_BE_FROM_1_TO_50
+        }
+      },
       email: {
         ...emailSchema,
-        custom: {}
+        custom: {
+          options: async (value) => {
+            const isExist = await usersService.checkEmailExist(value)
+            if (isExist) {
+              throw new Error(USERS_MESSAGES.EMAIL_ALREADY_EXISTS)
+            }
+            return true
+          }
+        }
       },
-      password: passwordSchema
+      date_of_birth: dateOfBirthSchema,
+      location: {
+        notEmpty: {
+          errorMessage: USERS_MESSAGES.LOCATION_IS_REQUIRED
+        },
+        isString: {
+          errorMessage: USERS_MESSAGES.LOCATION_MUST_BE_A_STRING
+        },
+        trim: true,
+        isLength: {
+          options: {
+            min: 1,
+            max: 50
+          },
+          errorMessage: USERS_MESSAGES.LOCATION_LENGTH_MUST_BE_FROM_1_TO_50
+        }
+      },
+      password: passwordSchema,
+      confirm_password: confirmPasswordSchema
     },
     ['body']
   )
@@ -51,7 +99,7 @@ export const resetPasswordValidator = validate(
             try {
               const decoded_forgot_password_token = await verifyToken({
                 token: value,
-                secretOrPublicKey: process.env.JWT_SECRET_FORGOT_PASSWORD_TOKEN
+                secretPublicKey: process.env.JWT_SECRET_FORGOT_PASSWORD_TOKEN
               })
               const { user_id } = decoded_forgot_password_token
               const user = await databaseService.users.findOne({ _id: new ObjectId(user_id) })

@@ -1,16 +1,6 @@
 import { ParamSchema } from 'express-validator'
 import { USERS_MESSAGES } from '@/constants/messages'
 
-export const emailSchema: ParamSchema = {
-  notEmpty: {
-    errorMessage: USERS_MESSAGES.EMAIL_IS_REQUIRED
-  },
-  isEmail: {
-    errorMessage: USERS_MESSAGES.EMAIL_IS_INVALID
-  },
-  trim: true
-}
-
 export const passwordSchema: ParamSchema = {
   notEmpty: {
     errorMessage: USERS_MESSAGES.PASSWORD_IS_REQUIRED
@@ -70,5 +60,18 @@ export const confirmPasswordSchema: ParamSchema = {
       }
       return true
     }
+  }
+}
+
+export const dateOfBirthSchema: ParamSchema = {
+  notEmpty: {
+    errorMessage: USERS_MESSAGES.DATE_OF_BIRTH_IS_REQUIRED
+  },
+  isISO8601: {
+    options: {
+      strict: true,
+      strictSeparator: true
+    },
+    errorMessage: USERS_MESSAGES.DATE_OF_BIRTH_MUST_BE_ISO8601
   }
 }
