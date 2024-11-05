@@ -1,10 +1,11 @@
 import { ObjectId } from 'mongodb'
 import { TokenType, VerifyStatus } from '@/constants/enums'
 import { RegisterReqBody } from '@/models/requests/User.requests'
+import RefreshToken from '@/models/schemas/RefreshToken.schemas'
 import User from '@/models/schemas/User.schemas'
 import databaseService from '@/services/database.services'
 import { hashPassword } from '@/utils/crypto'
-import { signToken } from '@/utils/jwt'
+import { signToken, verifyToken } from '@/utils/jwt'
 
 class UsersService {
   private signAccessToken({ user_id, verify }: { user_id: string; verify: VerifyStatus }) {
@@ -48,6 +49,13 @@ class UsersService {
     ])
   }
 
+  private decodeRefreshToken(refresh_token: string) {
+    return verifyToken({
+      token: refresh_token,
+      secretPublicKey: process.env.JWT_SECRET_REFRESH_TOKEN as string
+    })
+  }
+
   async checkEmailExist(email: string) {
     const user = await databaseService.users.findOne({ email })
     return Boolean(user)
@@ -78,6 +86,15 @@ class UsersService {
       user_id,
       verify
     })
+    const { iat, exp } = await this.decodeRefreshToken(refresh_token)
+    await databaseService.refreshTokens.insertOne(
+      new RefreshToken({
+        user_id: new ObjectId(user_id),
+        token: refresh_token,
+        iat,
+        exp
+      })
+    )
     return {
       access_token,
       refresh_token

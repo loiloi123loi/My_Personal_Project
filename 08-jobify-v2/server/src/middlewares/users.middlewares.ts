@@ -1,6 +1,11 @@
 import { checkSchema } from 'express-validator'
 import { USERS_MESSAGES } from '@/constants/messages'
-import { confirmPasswordSchema, dateOfBirthSchema, passwordSchema } from '@/models/validSchemas/users.validSchemas'
+import {
+  confirmPasswordSchema,
+  dateOfBirthSchema,
+  emailSchema,
+  passwordSchema
+} from '@/models/validSchemas/users.validSchemas'
 import databaseService from '@/services/database.services'
 import usersService from '@/services/users.services'
 import { hashPassword } from '@/utils/crypto'
@@ -26,13 +31,7 @@ export const registerValidator = validate(
         }
       },
       email: {
-        notEmpty: {
-          errorMessage: USERS_MESSAGES.EMAIL_IS_REQUIRED
-        },
-        isEmail: {
-          errorMessage: USERS_MESSAGES.EMAIL_IS_INVALID
-        },
-        trim: true,
+        ...emailSchema,
         custom: {
           options: async (value) => {
             const isExist = await usersService.checkEmailExist(value)
@@ -71,13 +70,7 @@ export const loginValidator = validate(
   checkSchema(
     {
       email: {
-        notEmpty: {
-          errorMessage: USERS_MESSAGES.EMAIL_IS_REQUIRED
-        },
-        isEmail: {
-          errorMessage: USERS_MESSAGES.EMAIL_IS_INVALID
-        },
-        trim: true,
+        ...emailSchema,
         custom: {
           options: async (value, { req }) => {
             const user = await databaseService.users.findOne({
