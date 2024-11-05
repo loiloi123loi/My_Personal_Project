@@ -28,5 +28,9 @@ export const USERS_MESSAGES = {
   LOCATION_LENGTH_MUST_BE_FROM_1_TO_50: 'Location is required',
   DATE_OF_BIRTH_IS_REQUIRED: 'Date of birth is required',
   DATE_OF_BIRTH_MUST_BE_ISO8601: 'Date of birth must be ISO8601',
-  REGISTER_SUCCESS: 'Register success'
+  REGISTER_SUCCESS: 'Register success',
+  ACCESS_TOKEN_IS_REQUIRED: 'Access token is required',
+  REFRESH_TOKEN_IS_REQUIRED: 'Refresh token is required',
+  REFRESH_TOKEN_USED_OR_NOT_EXIST: 'Refresh token used or not exist',
+  LOGOUT_SUCCESS: 'Logout success'
 } as const

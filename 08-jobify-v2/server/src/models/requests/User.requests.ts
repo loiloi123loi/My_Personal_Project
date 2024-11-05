@@ -16,3 +16,7 @@ export interface TokenPayload {
   exp: number
   iat: number
 }
+
+export interface LogoutReqBody {
+  refresh_token: string
+}
