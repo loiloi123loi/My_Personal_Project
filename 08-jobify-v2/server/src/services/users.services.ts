@@ -66,6 +66,7 @@ class UsersService {
     await databaseService.users.insertOne(
       new User({
         ...payload,
+        _id: user_id,
         date_of_birth: new Date(payload.date_of_birth),
         password: hashPassword(payload.password),
         username: 'User' + user_id
@@ -75,6 +76,15 @@ class UsersService {
       user_id: user_id.toString(),
       verify: VerifyStatus.UNVERIFIED
     })
+    const { iat, exp } = await this.decodeRefreshToken(refresh_token)
+    await databaseService.refreshTokens.insertOne(
+      new RefreshToken({
+        user_id,
+        token: refresh_token,
+        iat,
+        exp
+      })
+    )
     return {
       access_token,
       refresh_token
