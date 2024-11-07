@@ -34,3 +34,7 @@ export const USERS_MESSAGES = {
   REFRESH_TOKEN_USED_OR_NOT_EXIST: 'Refresh token used or not exist',
   LOGOUT_SUCCESS: 'Logout success'
 } as const
+
+export const JOBS_MESSAGES = {
+  GET_ALL_JOBS_SUCCESS: 'Get all jobs success'
+} as const
