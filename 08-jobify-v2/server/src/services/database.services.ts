@@ -1,5 +1,6 @@
 import dotenv from 'dotenv'
 import { Collection, Db, MongoClient } from 'mongodb'
+import Job from '@/models/schemas/Job.schemas'
 import RefreshToken from '@/models/schemas/RefreshToken.schemas'
 import User from '@/models/schemas/User.schemas'
 import logger from '@/utils/logger'
@@ -33,6 +34,10 @@ class DatabaseService {
 
   get refreshTokens(): Collection<RefreshToken> {
     return this.db.collection(process.env.DB_REFRESH_TOKENS_COLLECTION as string)
+  }
+
+  get jobs(): Collection<Job> {
+    return this.db.collection(process.env.DB_JOBS_COLLECTION as string)
   }
 }
 
