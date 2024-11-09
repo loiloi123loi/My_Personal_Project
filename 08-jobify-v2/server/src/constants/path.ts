@@ -12,5 +12,6 @@ export const USER_PATH = {
 } as const
 
 export const JOB_PATH = {
-  GET_ALL_JOBS: '/'
+  GET_ALL_JOBS: '/',
+  GET_SINGLE_JOB: '/:job_id'
 } as const

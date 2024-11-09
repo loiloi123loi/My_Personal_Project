@@ -36,5 +36,8 @@ export const USERS_MESSAGES = {
 } as const
 
 export const JOBS_MESSAGES = {
-  GET_ALL_JOBS_SUCCESS: 'Get all jobs success'
+  GET_ALL_JOBS_SUCCESS: 'Get all jobs success',
+  JOB_ID_IS_INVALID: 'Job ID is invalid',
+  JOB_NOT_FOUND: 'Job not found',
+  GET_SINGLE_JOB_SUCCESS: 'Get single job success'
 } as const
