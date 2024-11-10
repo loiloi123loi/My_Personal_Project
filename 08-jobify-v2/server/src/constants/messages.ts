@@ -36,5 +36,15 @@ export const USERS_MESSAGES = {
 } as const
 
 export const JOBS_MESSAGES = {
-  GET_ALL_JOBS_SUCCESS: 'Get all jobs success'
+  GET_ALL_JOBS_SUCCESS: 'Get all jobs success',
+  JOB_ID_IS_INVALID: 'Job ID is invalid',
+  COMPANY_IS_REQUIRED: 'Company is required',
+  COMPANY_MUST_BE_A_STRING: 'Company must be a string',
+  POSTION_IS_REQUIRED: 'Position is required',
+  POSTION_MUST_BE_A_STRING: 'Position must be a string',
+  STATUS_MUST_BE_ONE_OF: 'Status must be one of ',
+  TYPE_MUST_BE_ONE_OF: 'Type must be one of ',
+  LOCATION_MUST_BE_A_STRING: 'Location must be a string',
+  UPDATE_JOB_SUCCESS: 'Update job success',
+  JOB_NOT_FOUND: 'Job not found'
 } as const
