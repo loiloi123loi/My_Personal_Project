@@ -2,7 +2,8 @@ const API_VERSION = '/api/v1'
 
 export const ROUTE = {
   USER: `${API_VERSION}/users`,
-  JOB: `${API_VERSION}/jobs`
+  JOB: `${API_VERSION}/jobs`,
+  CHAT: `${API_VERSION}/chats`
 } as const
 
 export const USER_PATH = {
@@ -13,4 +14,8 @@ export const USER_PATH = {
 
 export const JOB_PATH = {
   GET_ALL_JOBS: '/'
+} as const
+
+export const CHAT_PATH = {
+  ALL_CONVERSATIONS: '/'
 } as const

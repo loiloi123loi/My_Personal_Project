@@ -1,6 +1,8 @@
 import dotenv from 'dotenv'
 import { Collection, Db, MongoClient } from 'mongodb'
+import Conversation from '@/models/schemas/Conversation.schemas'
 import Job from '@/models/schemas/Job.schemas'
+import Message from '@/models/schemas/Message.schemas'
 import RefreshToken from '@/models/schemas/RefreshToken.schemas'
 import User from '@/models/schemas/User.schemas'
 import logger from '@/utils/logger'
@@ -38,6 +40,14 @@ class DatabaseService {
 
   get jobs(): Collection<Job> {
     return this.db.collection(process.env.DB_JOBS_COLLECTION as string)
+  }
+
+  get messages(): Collection<Message> {
+    return this.db.collection(process.env.DB_MESSAGES_COLLECTION as string)
+  }
+
+  get conversations(): Collection<Conversation> {
+    return this.db.collection(process.env.DB_CONVERSATIONS_COLLECTION as string)
   }
 }
 
