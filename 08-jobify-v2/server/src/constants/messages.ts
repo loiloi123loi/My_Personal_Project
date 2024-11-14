@@ -38,3 +38,7 @@ export const USERS_MESSAGES = {
 export const JOBS_MESSAGES = {
   GET_ALL_JOBS_SUCCESS: 'Get all jobs success'
 } as const
+
+export const CHATS_MESSAGES = {
+  GET_ALL_CONVERSATIONS_SUCCESS: 'Get all conversations success'
+} as const
