@@ -1,5 +1,41 @@
+import 'react-toastify/dist/ReactToastify.css'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { useState } from 'react'
+import { HelmetProvider } from 'react-helmet-async'
+import { ToastContainer } from 'react-toastify'
+import ErrorBoundary from '@/components/ErrorBoundary'
+import LoadingContextProvider from '@/contexts/LoadingContext'
+import ThemeProvider from '@/contexts/ThemeContext'
+import useRouteElements from '@/routes/useRouteElement'
+
 function App() {
-  return <div>Hello world!</div>
+  console.log('render')
+  const routes = useRouteElements()
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: 60 * 1000 * 5
+          }
+        }
+      })
+  )
+
+  return (
+    <HelmetProvider>
+      <ErrorBoundary>
+        <ThemeProvider>
+          <QueryClientProvider client={queryClient}>
+            <LoadingContextProvider>
+              {routes}
+              <ToastContainer />
+            </LoadingContextProvider>
+          </QueryClientProvider>
+        </ThemeProvider>
+      </ErrorBoundary>
+    </HelmetProvider>
+  )
 }
 
 export default App
