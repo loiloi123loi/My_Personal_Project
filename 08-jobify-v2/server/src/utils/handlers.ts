@@ -1,7 +1,11 @@
-import { NextFunction, Request, RequestHandler, Response } from 'express'
+import { NextFunction, Request, Response } from 'express'
 
-export const wrapRequestHandler = (func: RequestHandler) => {
-  return async (req: Request, res: Response, next: NextFunction) => {
+type ResponseReturnType = void | Response
+
+export const wrapRequestHandler = <T>(
+  func: (_req: Request<T>, _res: Response, _next: NextFunction) => Promise<ResponseReturnType> | ResponseReturnType
+) => {
+  return async (req: Request<T>, res: Response, next: NextFunction) => {
     // Promise.resolve(func(req, res, next)).catch(next)
     try {
       await func(req, res, next)
