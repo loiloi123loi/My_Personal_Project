@@ -1,4 +1,3 @@
-import { ObjectId } from 'mongodb'
 import { TokenType, VerifyStatus } from '@/constants/enums'
 import { RegisterReqBody } from '@/models/requests/User.requests'
 import RefreshToken from '@/models/schemas/RefreshToken.schemas'
@@ -6,6 +5,7 @@ import User from '@/models/schemas/User.schemas'
 import databaseService from '@/services/database.services'
 import { hashPassword } from '@/utils/crypto'
 import { signToken, verifyToken } from '@/utils/jwt'
+import { ObjectId } from 'mongodb'
 
 class UsersService {
   private signAccessToken({ user_id, verify }: { user_id: string; verify: VerifyStatus }) {
@@ -18,6 +18,19 @@ class UsersService {
       secret: process.env.JWT_SECRET_ACCESS_TOKEN as string,
       options: {
         expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN
+      }
+    })
+  }
+
+  private async signForgotPasswordToken({ user_id }: { user_id: string }) {
+    return signToken({
+      payload: {
+        user_id,
+        token_type: TokenType.FORGOT_PASSWORD_TOKEN
+      },
+      secret: process.env.JWT_SECRET_FORGOT_PASSWORD_TOKEN as string,
+      options: {
+        expiresIn: process.env.FORGOT_PASSWORD_TOKEN_EXPIRES_IN
       }
     })
   }
@@ -115,6 +128,33 @@ class UsersService {
     await databaseService.refreshTokens.deleteOne({
       token: refresh_token
     })
+  }
+
+  async resetPassword(user_id: string, password: string) {
+    await databaseService.users.updateOne(
+      { _id: new ObjectId(user_id) },
+      {
+        $set: {
+          forgot_password_token: '',
+          password: hashPassword(password)
+        },
+        $currentDate: {
+          updated_at: true
+        }
+      }
+    )
+  }
+
+  async forgotPassword(user_id: string) {
+    const forgot_password_token = await this.signForgotPasswordToken({ user_id })
+    await databaseService.users.updateOne({ _id: new ObjectId(user_id) }, [
+      {
+        $set: {
+          forgot_password_token,
+          updated_at: '$$NOW'
+        }
+      }
+    ])
   }
 }
 
