@@ -1,7 +1,7 @@
-import { checkSchema } from 'express-validator'
 import { JobStatus, JobType } from '@/constants/enums'
 import { JOBS_MESSAGES } from '@/constants/messages'
 import { validate } from '@/utils/validation'
+import { checkSchema } from 'express-validator'
 
 export const createJobMMiddleware = validate(
   checkSchema(
@@ -45,5 +45,18 @@ export const createJobMMiddleware = validate(
       }
     },
     ['body']
+  )
+)
+
+export const jobIdValidator = validate(
+  checkSchema(
+    {
+      job_id: {
+        isMongoId: {
+          errorMessage: JOBS_MESSAGES.JOB_ID_IS_INVALID
+        }
+      }
+    },
+    ['params']
   )
 )

@@ -1,8 +1,8 @@
-import { ObjectId } from 'mongodb'
 import { CreateJobReqBody } from '@/models/requests/Job.requests'
 import Job from '@/models/schemas/Job.schemas'
 import User from '@/models/schemas/User.schemas'
 import databaseService from '@/services/database.services'
+import { ObjectId } from 'mongodb'
 
 class JobService {
   async getAllJobs(user_id: string) {
@@ -26,6 +26,12 @@ class JobService {
       })
     )
     return { job }
+  }
+  async deleteJob(user_id: string, job_id: string) {
+    await databaseService.jobs.deleteOne({
+      _id: new ObjectId(job_id),
+      created_by: new ObjectId(user_id)
+    })
   }
 }
 

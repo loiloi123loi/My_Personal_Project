@@ -1,10 +1,10 @@
-import { Request, Response } from 'express'
-import { ParamsDictionary } from 'express-serve-static-core'
 import { HTTP_STATUS } from '@/constants/httpStatus'
 import { JOBS_MESSAGES } from '@/constants/messages'
-import { CreateJobReqBody } from '@/models/requests/Job.requests'
+import { CreateJobReqBody, DeleteJobReqParams } from '@/models/requests/Job.requests'
 import { TokenPayload } from '@/models/requests/User.requests'
 import jobService from '@/services/jobs.services'
+import { Request, Response } from 'express'
+import { ParamsDictionary } from 'express-serve-static-core'
 
 export const getAllJobsController = async (req: Request, res: Response) => {
   const { user_id } = req.decoded_authorization as TokenPayload
@@ -21,5 +21,14 @@ export const createJobController = async (req: Request<ParamsDictionary, unknown
   res.status(HTTP_STATUS.OK).json({
     message: JOBS_MESSAGES.CREATE_JOB_SUCCESS,
     result
+  })
+}
+
+export const deleteJobController = async (req: Request<DeleteJobReqParams>, res: Response) => {
+  const { user_id } = req.decoded_authorization as TokenPayload
+  const { job_id } = req.params
+  await jobService.deleteJob(user_id, job_id)
+  res.status(HTTP_STATUS.OK).json({
+    message: JOBS_MESSAGES.DELETE_JOB_SUCCESS
   })
 }

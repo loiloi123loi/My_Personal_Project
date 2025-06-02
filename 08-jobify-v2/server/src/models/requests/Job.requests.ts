@@ -7,3 +7,7 @@ export interface CreateJobReqBody {
   job_type: JobType
   job_location?: string
 }
+
+export interface DeleteJobReqParams {
+  job_id: string
+}
