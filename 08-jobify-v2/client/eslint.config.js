@@ -1,5 +1,6 @@
 import js from '@eslint/js'
 import eslintPluginPrettier from 'eslint-plugin-prettier'
+import eslintPluginImport from 'eslint-plugin-import'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import globals from 'globals'
@@ -17,10 +18,12 @@ export default tseslint.config(
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
-      prettier: eslintPluginPrettier
+      prettier: eslintPluginPrettier,
+      import: eslintPluginImport
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'prettier/prettier': [
         'warn',
@@ -33,7 +36,18 @@ export default tseslint.config(
           useTabs: false,
           singleQuote: true,
           printWidth: 120,
-          jsxSingleQuote: true
+          jsxSingleQuote: false
+        }
+      ],
+      'import/order': [
+        'error',
+        {
+          groups: ['builtin', 'external', 'internal', ['parent', 'sibling']],
+          'newlines-between': 'never',
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true
+          }
         }
       ]
     }

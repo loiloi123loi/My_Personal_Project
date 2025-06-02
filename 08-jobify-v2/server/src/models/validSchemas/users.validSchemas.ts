@@ -8,6 +8,16 @@ import BaseError from '@/models/errors/Base.errors'
 import databaseService from '@/services/database.services'
 import { verifyToken } from '@/utils/jwt'
 
+export const emailSchema: ParamSchema = {
+  notEmpty: {
+    errorMessage: USERS_MESSAGES.EMAIL_IS_REQUIRED
+  },
+  isEmail: {
+    errorMessage: USERS_MESSAGES.EMAIL_IS_INVALID
+  },
+  trim: true
+}
+
 export const passwordSchema: ParamSchema = {
   notEmpty: {
     errorMessage: USERS_MESSAGES.PASSWORD_IS_REQUIRED

@@ -1,9 +1,9 @@
-import { NextFunction, Request, Response } from 'express'
-import { ValidationChain, validationResult } from 'express-validator'
-import { RunnableValidationChains } from 'express-validator/lib/middlewares/schema'
 import { HTTP_STATUS } from '@/constants/httpStatus'
 import BaseError from '@/models/errors/Base.errors'
 import EntityError from '@/models/errors/Entity.errors'
+import { NextFunction, Request, Response } from 'express'
+import { ValidationChain, validationResult } from 'express-validator'
+import { RunnableValidationChains } from 'express-validator/lib/middlewares/schema'
 
 export const validate = (validator: RunnableValidationChains<ValidationChain>) => {
   return async (req: Request, res: Response, next: NextFunction) => {
@@ -12,17 +12,17 @@ export const validate = (validator: RunnableValidationChains<ValidationChain>) =
     if (errors.isEmpty()) {
       return next()
     }
-    const errorsObject = errors.mapped()
+    const errorsObj = errors.mapped()
     const entityError = new EntityError({
       errors: {}
     })
-    for (const key in errorsObject) {
-      const { msg } = errorsObject[key]
+    for (const key in errorsObj) {
+      const { msg } = errorsObj[key]
       if (msg instanceof BaseError && msg.status !== HTTP_STATUS.UNPROCESSABLE_ENTITY) {
-        errorsObject[key] = errorsObject[key].msg
+        errorsObj[key] = errorsObj[key].msg
         return next(msg)
       }
-      entityError.errors[key] = errorsObject[key]
+      entityError.errors[key] = errorsObj[key]
     }
     next(entityError)
   }
