@@ -11,6 +11,7 @@ export const USER_PATH = {
   LOGIN: '/login',
   LOGOUT: '/logout',
   RESET_PASSWORD: '/reset-password',
+  FORGOT_PASSWORD: '/forgot-password',
   VERIFY_FORGOT_PASSWORD: '/verify-forgot-password'
 } as const
 
