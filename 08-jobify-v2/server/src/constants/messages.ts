@@ -11,6 +11,8 @@ export const USERS_MESSAGES = {
   EMAIL_IS_INVALID: 'Email is invalid',
   EMAIL_DOES_NOT_EXIST: 'Email does not exist',
   EMAIL_ALREADY_EXISTS: 'Email already exists',
+  EMAIL_OR_PASSWORD_IS_INCORRECT: 'Email or password is incorrect',
+  LOGIN_SUCCESS: 'Login success',
   PASSWORD_IS_REQUIRED: 'Password is required',
   PASSWORD_MUST_BE_A_STRING: 'Password must be a string',
   PASSWORD_LENGTH_MUST_BE_FROM_6_TO_50: 'Password length must be from 6 to 50',
@@ -22,12 +24,39 @@ export const USERS_MESSAGES = {
   CONFIRM_PASSWORD_MUST_BE_STRONG:
     'Confirm password must be at least 6 - 50 characters long and contain at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 symbol',
   CONFIRM_PASSWORD_MUST_BE_THE_SAME_AS_PASSWORD: 'Confirm password must be the same as password',
+  FORGOT_PASSWORD_TOKEN_IS_REQUIRED: 'Forgot password token is required',
+  FORGOT_PASSWORD_TOKEN_MUST_BE_A_STRING: 'Forgot password token must be a string',
+  FORGOT_PASSWORD_TOKEN_IS_INVALID: 'Forgot password token is invalid',
+  RESET_PASSWORD_SUCCESS: 'Reset password success',
+  USER_NOT_FOUND: 'User not found',
   LOCATION_IS_REQUIRED: 'Location is required',
   LOCATION_MUST_BE_A_STRING: 'Location is required',
   LOCATION_LENGTH_MUST_BE_FROM_1_TO_50: 'Location is required',
   DATE_OF_BIRTH_IS_REQUIRED: 'Date of birth is required',
   DATE_OF_BIRTH_MUST_BE_ISO8601: 'Date of birth must be ISO8601',
   REGISTER_SUCCESS: 'Register success',
+  ACCESS_TOKEN_IS_REQUIRED: 'Access token is required',
+  REFRESH_TOKEN_IS_REQUIRED: 'Refresh token is required',
+  REFRESH_TOKEN_USED_OR_NOT_EXIST: 'Refresh token used or not exist',
+  LOGOUT_SUCCESS: 'Logout success',
   CHECK_YOUR_EMAIL_AND_FOLLOW_THE_INSTRUCTIONS_TO_RESET_YOUR_PASSWORD:
     'Check your email and follow the instructions to reset your password'
+} as const
+
+export const JOBS_MESSAGES = {
+  GET_ALL_JOBS_SUCCESS: 'Get all jobs success',
+  COMPANY_IS_REQUIRED: 'Company is required',
+  COMPANY_MUST_BE_A_STRING: 'Company must be a string',
+  POSITION_IS_REQUIRED: 'Position is required',
+  POSITION_MUST_BE_A_STRING: 'Position must be a string',
+  STATUS_MUST_BE_ONE_OF: 'Status must be one of ',
+  TYPE_MUST_BE_ONE_OF: 'Type must be one of ',
+  LOCATION_MUST_BE_A_STRING: 'Location must be a string',
+  CREATE_JOB_SUCCESS: 'Create job success',
+  JOB_ID_IS_INVALID: 'Job ID is invalid',
+  DELETE_JOB_SUCCESS: 'Delete job success'
+} as const
+
+export const CHATS_MESSAGES = {
+  GET_ALL_CONVERSATIONS_SUCCESS: 'Get all conversations success'
 } as const

@@ -19,7 +19,7 @@ interface IUser {
 }
 
 export default class User {
-  _id?: ObjectId
+  _id: ObjectId
   email: string
   date_of_birth: Date
   password: string
@@ -51,7 +51,7 @@ export default class User {
     updated_at
   }: IUser) {
     const now = new Date()
-    this._id = _id
+    this._id = _id || new ObjectId()
     this.email = email
     this.date_of_birth = date_of_birth
     this.password = password
