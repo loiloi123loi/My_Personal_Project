@@ -17,10 +17,10 @@ export const createJobMMiddleware = validate(
       },
       position: {
         notEmpty: {
-          errorMessage: JOBS_MESSAGES.POSTION_IS_REQUIRED
+          errorMessage: JOBS_MESSAGES.POSITION_IS_REQUIRED
         },
         isString: {
-          errorMessage: JOBS_MESSAGES.POSTION_MUST_BE_A_STRING
+          errorMessage: JOBS_MESSAGES.POSITION_MUST_BE_A_STRING
         },
         trim: true
       },

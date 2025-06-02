@@ -10,7 +10,8 @@ export const USER_PATH = {
   REGISTER: '/register',
   LOGIN: '/login',
   LOGOUT: '/logout',
-  RESET_PASSWORD: '/reset-password'
+  RESET_PASSWORD: '/reset-password',
+  FORGOT_PASSWORD: '/forgot-password'
 } as const
 
 export const JOB_PATH = {
