@@ -11,3 +11,7 @@ export interface CreateJobReqBody {
 export interface DeleteJobReqParams {
   job_id: string
 }
+
+export interface GetSingleJobReqParams {
+  job_id: string
+}

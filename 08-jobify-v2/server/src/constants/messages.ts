@@ -55,7 +55,9 @@ export const JOBS_MESSAGES = {
   LOCATION_MUST_BE_A_STRING: 'Location must be a string',
   CREATE_JOB_SUCCESS: 'Create job success',
   JOB_ID_IS_INVALID: 'Job ID is invalid',
-  DELETE_JOB_SUCCESS: 'Delete job success'
+  DELETE_JOB_SUCCESS: 'Delete job success',
+  JOB_NOT_FOUND: 'Job not found',
+  GET_SINGLE_JOB_SUCCESS: 'Get single job success'
 } as const
 
 export const CHATS_MESSAGES = {

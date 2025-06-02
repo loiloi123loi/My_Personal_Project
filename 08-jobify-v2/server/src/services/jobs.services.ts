@@ -33,6 +33,14 @@ class JobService {
       created_by: new ObjectId(user_id)
     })
   }
+
+  async getSingleJob(user_id: string, job_id: string) {
+    const job = await databaseService.jobs.findOne({
+      _id: new ObjectId(job_id),
+      created_by: new ObjectId(user_id)
+    })
+    return { job }
+  }
 }
 
 const jobService = new JobService()

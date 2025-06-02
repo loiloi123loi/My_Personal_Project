@@ -17,7 +17,8 @@ export const USER_PATH = {
 
 export const JOB_PATH = {
   GET_ALL_JOBS: '/',
-  DELETE_JOB: '/:job_id'
+  DELETE_JOB: '/:job_id',
+  GET_SINGLE_JOB: '/:job_id'
 } as const
 
 export const CHAT_PATH = {
