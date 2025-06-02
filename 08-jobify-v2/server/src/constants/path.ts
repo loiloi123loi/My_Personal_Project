@@ -9,7 +9,8 @@ export const ROUTE = {
 export const USER_PATH = {
   REGISTER: '/register',
   LOGIN: '/login',
-  LOGOUT: '/logout'
+  LOGOUT: '/logout',
+  RESET_PASSWORD: '/reset-password'
 } as const
 
 export const JOB_PATH = {

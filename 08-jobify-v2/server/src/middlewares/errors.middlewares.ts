@@ -4,7 +4,7 @@ import { HTTP_STATUS } from '@/constants/httpStatus'
 import { COMMON_MESSAGES } from '@/constants/messages'
 import BaseError from '@/models/errors/Base.errors'
 
-export const errorHandler = (err: Error | BaseError, req: Request, res: Response, next: NextFunction) => {
+export const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
   if (err instanceof BaseError) {
     res.status(err.status || HTTP_STATUS.INTERNAL_SERVER_ERROR).json(omit(err, ['status']))
     return

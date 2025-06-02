@@ -23,6 +23,11 @@ export const USERS_MESSAGES = {
   CONFIRM_PASSWORD_MUST_BE_STRONG:
     'Confirm password must be at least 6 - 50 characters long and contain at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 symbol',
   CONFIRM_PASSWORD_MUST_BE_THE_SAME_AS_PASSWORD: 'Confirm password must be the same as password',
+  FORGOT_PASSWORD_TOKEN_IS_REQUIRED: 'Forgot password token is required',
+  FORGOT_PASSWORD_TOKEN_MUST_BE_A_STRING: 'Forgot password token must be a string',
+  FORGOT_PASSWORD_TOKEN_IS_INVALID: 'Forgot password token is invalid',
+  RESET_PASSWORD_SUCCESS: 'Reset password success',
+  USER_NOT_FOUND: 'User not found',
   LOCATION_IS_REQUIRED: 'Location is required',
   LOCATION_MUST_BE_A_STRING: 'Location is required',
   LOCATION_LENGTH_MUST_BE_FROM_1_TO_50: 'Location is required',

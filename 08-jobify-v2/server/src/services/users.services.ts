@@ -1,4 +1,3 @@
-import { ObjectId } from 'mongodb'
 import { TokenType, VerifyStatus } from '@/constants/enums'
 import { RegisterReqBody } from '@/models/requests/User.requests'
 import RefreshToken from '@/models/schemas/RefreshToken.schemas'
@@ -6,6 +5,7 @@ import User from '@/models/schemas/User.schemas'
 import databaseService from '@/services/database.services'
 import { hashPassword } from '@/utils/crypto'
 import { signToken, verifyToken } from '@/utils/jwt'
+import { ObjectId } from 'mongodb'
 
 class UsersService {
   private signAccessToken({ user_id, verify }: { user_id: string; verify: VerifyStatus }) {
@@ -115,6 +115,21 @@ class UsersService {
     await databaseService.refreshTokens.deleteOne({
       token: refresh_token
     })
+  }
+
+  async resetPassword(user_id: string, password: string) {
+    await databaseService.users.updateOne(
+      { _id: new ObjectId(user_id) },
+      {
+        $set: {
+          forgot_password_token: '',
+          password: hashPassword(password)
+        },
+        $currentDate: {
+          updated_at: true
+        }
+      }
+    )
   }
 }
 
