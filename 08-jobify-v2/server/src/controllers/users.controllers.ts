@@ -63,3 +63,9 @@ export const forgotPasswordController = async (
     message: USERS_MESSAGES.CHECK_YOUR_EMAIL_AND_FOLLOW_THE_INSTRUCTIONS_TO_RESET_YOUR_PASSWORD
   })
 }
+
+export const verifyForgotPasswordController = (req: Request, res: Response) => {
+  res.status(HTTP_STATUS.OK).json({
+    message: USERS_MESSAGES.VERIFY_FORGOT_PASSWORD_SUCCESS
+  })
+}

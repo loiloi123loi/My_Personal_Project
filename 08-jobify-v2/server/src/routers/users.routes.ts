@@ -4,7 +4,8 @@ import {
   loginController,
   logoutController,
   registerController,
-  resetPasswordController
+  resetPasswordController,
+  verifyForgotPasswordController
 } from '@/controllers/users.controllers'
 import {
   accessTokenValidator,
@@ -12,7 +13,8 @@ import {
   loginValidator,
   refreshTokenValidator,
   registerValidator,
-  resetPasswordValidator
+  resetPasswordValidator,
+  verifyForgotPasswordValidator
 } from '@/middlewares/users.middlewares'
 import { wrapRequestHandler } from '@/utils/handlers'
 import { Router } from 'express'
@@ -25,5 +27,8 @@ usersRouter
   .post(accessTokenValidator, refreshTokenValidator, wrapRequestHandler(logoutController))
 usersRouter.route(USER_PATH.RESET_PASSWORD).post(resetPasswordValidator, wrapRequestHandler(resetPasswordController))
 usersRouter.route(USER_PATH.FORGOT_PASSWORD).post(forgotPasswordValidator, wrapRequestHandler(forgotPasswordController))
+usersRouter
+  .route(USER_PATH.VERIFY_FORGOT_PASSWORD)
+  .post(verifyForgotPasswordValidator, wrapRequestHandler(verifyForgotPasswordController))
 
 export default usersRouter

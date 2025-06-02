@@ -40,7 +40,8 @@ export const USERS_MESSAGES = {
   REFRESH_TOKEN_USED_OR_NOT_EXIST: 'Refresh token used or not exist',
   LOGOUT_SUCCESS: 'Logout success',
   CHECK_YOUR_EMAIL_AND_FOLLOW_THE_INSTRUCTIONS_TO_RESET_YOUR_PASSWORD:
-    'Check your email and follow the instructions to reset your password'
+    'Check your email and follow the instructions to reset your password',
+  VERIFY_FORGOT_PASSWORD_SUCCESS: 'Verify forgot password token success'
 } as const
 
 export const JOBS_MESSAGES = {

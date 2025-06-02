@@ -5,6 +5,7 @@ import {
   confirmPasswordSchema,
   dateOfBirthSchema,
   emailSchema,
+  forgotPasswordSchema,
   passwordSchema
 } from '@/models/validSchemas/users.validSchemas'
 import databaseService from '@/services/database.services'
@@ -254,6 +255,15 @@ export const resetPasswordValidator = validate(
       },
       password: passwordSchema,
       confirm_password: confirmPasswordSchema
+    },
+    ['body']
+  )
+)
+
+export const verifyForgotPasswordValidator = validate(
+  checkSchema(
+    {
+      forgot_password_token: forgotPasswordSchema
     },
     ['body']
   )
