@@ -1,6 +1,6 @@
 import { HTTP_STATUS } from '@/constants/httpStatus'
 import { JOBS_MESSAGES } from '@/constants/messages'
-import { CreateJobReqBody, DeleteJobReqParams, GetSingleJobReqParams } from '@/models/requests/Job.requests'
+import { CreateJobReqBody, JobIdReqParams, UpdateJobReqBody } from '@/models/requests/Job.requests'
 import { TokenPayload } from '@/models/requests/User.requests'
 import jobService from '@/services/jobs.services'
 import { Request, Response } from 'express'
@@ -24,7 +24,7 @@ export const createJobController = async (req: Request<ParamsDictionary, unknown
   })
 }
 
-export const deleteJobController = async (req: Request<DeleteJobReqParams>, res: Response) => {
+export const deleteJobController = async (req: Request<JobIdReqParams>, res: Response) => {
   const { user_id } = req.decoded_authorization as TokenPayload
   const { job_id } = req.params
   await jobService.deleteJob(user_id, job_id)
@@ -33,7 +33,7 @@ export const deleteJobController = async (req: Request<DeleteJobReqParams>, res:
   })
 }
 
-export const getSingleJobController = async (req: Request<GetSingleJobReqParams>, res: Response) => {
+export const getSingleJobController = async (req: Request<JobIdReqParams>, res: Response) => {
   const { user_id } = req.decoded_authorization as TokenPayload
   const result = await jobService.getSingleJob(user_id, req.params.job_id)
   if (!result.job) {
@@ -43,6 +43,21 @@ export const getSingleJobController = async (req: Request<GetSingleJobReqParams>
   }
   res.status(HTTP_STATUS.OK).json({
     message: JOBS_MESSAGES.GET_SINGLE_JOB_SUCCESS,
+    result
+  })
+}
+
+export const updateJobController = async (req: Request<JobIdReqParams, unknown, UpdateJobReqBody>, res: Response) => {
+  const { user_id } = req.decoded_authorization as TokenPayload
+  const { job_id } = req.params
+  const result = await jobService.updateJob(user_id, job_id, req.body)
+  if (!result.job) {
+    return res.status(HTTP_STATUS.NOT_FOUND).json({
+      message: JOBS_MESSAGES.JOB_NOT_FOUND
+    })
+  }
+  res.status(HTTP_STATUS.OK).json({
+    message: JOBS_MESSAGES.UPDATE_JOB_SUCCESS,
     result
   })
 }

@@ -57,7 +57,8 @@ export const JOBS_MESSAGES = {
   JOB_ID_IS_INVALID: 'Job ID is invalid',
   DELETE_JOB_SUCCESS: 'Delete job success',
   JOB_NOT_FOUND: 'Job not found',
-  GET_SINGLE_JOB_SUCCESS: 'Get single job success'
+  GET_SINGLE_JOB_SUCCESS: 'Get single job success',
+  UPDATE_JOB_SUCCESS: 'Update job success'
 } as const
 
 export const CHATS_MESSAGES = {

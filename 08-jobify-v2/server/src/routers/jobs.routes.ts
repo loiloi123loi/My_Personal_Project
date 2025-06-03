@@ -3,9 +3,10 @@ import {
   createJobController,
   deleteJobController,
   getAllJobsController,
-  getSingleJobController
+  getSingleJobController,
+  updateJobController
 } from '@/controllers/jobs.controllers'
-import { createJobMMiddleware, jobIdValidator } from '@/middlewares/jobs.middlewares'
+import { createJobMMiddleware, jobIdValidator, updateJobValidator } from '@/middlewares/jobs.middlewares'
 import { accessTokenValidator } from '@/middlewares/users.middlewares'
 import { wrapRequestHandler } from '@/utils/handlers'
 import { Router } from 'express'
@@ -21,5 +22,8 @@ jobsRouter
 jobsRouter
   .route(JOB_PATH.GET_SINGLE_JOB)
   .get(accessTokenValidator, jobIdValidator, wrapRequestHandler(getSingleJobController))
+jobsRouter
+  .route(JOB_PATH.UPDATE_JOB)
+  .patch(accessTokenValidator, jobIdValidator, updateJobValidator, wrapRequestHandler(updateJobController))
 
 export default jobsRouter
