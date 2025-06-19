@@ -1,7 +1,7 @@
-import { useQuery } from '@tanstack/react-query'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
-import { GetChartsDataResponse } from './@types/Response'
 import { getChartsData } from '@/api/job'
+import { useQuery } from '@tanstack/react-query'
+import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { GetChartsDataResponse } from './@types/Response'
 
 const ChartsContainer = () => {
   const { data, isFetching } = useQuery<GetChartsDataResponse>({
@@ -9,7 +9,7 @@ const ChartsContainer = () => {
     queryFn: () => getChartsData()
   })
 
-  if (isFetching) return <h2 className="text-xl font-medium">Please wait...</h2>
+  if (isFetching) return <h2 className="text-xl font-medium mt-16">Please wait...</h2>
 
   if (!data || !data?.result?.data?.length || data?.result?.data?.length < 1) return null
 

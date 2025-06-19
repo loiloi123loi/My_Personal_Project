@@ -1,7 +1,7 @@
-import { Link, useLocation } from 'react-router-dom'
 import Logo from '@/assets/img/logo.svg'
 import { Button } from '@/components/ui/button'
 import links from '@/utils/links'
+import { Link, useLocation } from 'react-router-dom'
 
 function Sidebar() {
   const { pathname } = useLocation()
@@ -13,7 +13,7 @@ function Sidebar() {
         {links.map((link) => {
           return (
             <Button asChild key={link.href} variant={pathname === link.href ? 'default' : 'link'}>
-              <Link to={link.href} className="flex items-center gap-x-2 ">
+              <Link to={link.href} className="flex items-center gap-x-2 no-underline hover:no-underline">
                 {link.icon} <span className="capitalize">{link.label}</span>
               </Link>
             </Button>

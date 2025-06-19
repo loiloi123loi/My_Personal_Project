@@ -1,5 +1,4 @@
 import { useIsFetching, useIsMutating } from '@tanstack/react-query'
-import { Loader2 } from 'lucide-react'
 import { createContext, ReactNode } from 'react'
 
 interface LoadingContextType {
@@ -18,11 +17,11 @@ const LoadingContextProvider = ({ children }: { children: ReactNode }) => {
   return (
     <LoadingContext.Provider value={{ isLoading }}>
       {children}
-      {isLoading && (
+      {/* {isLoading && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/30 backdrop-blur-[20]">
           <Loader2 className="h-10 w-10 animate-spin text-primary" />
         </div>
-      )}
+      )} */}
     </LoadingContext.Provider>
   )
 }

@@ -1,12 +1,12 @@
+import { getAllJobs } from '@/api/job'
+import { GetAllJobsResponse } from '@/components/@types/Response'
+import JobCard from '@/components/JobCard'
+import { JobStatusEnum } from '@/utils/enums'
 import { useQuery } from '@tanstack/react-query'
 import { useSearchParams } from 'react-router-dom'
 import { z } from 'zod'
 import ButtonContainer from './ButtonContainer'
 import { Skeleton } from './ui/skeleton'
-import { getAllJobs } from '@/api/job'
-import { GetAllJobsResponse } from '@/components/@types/Response'
-import JobCard from '@/components/JobCard'
-import { JobStatusEnum, JobTypeEnum } from '@/utils/enums'
 
 function JobsList() {
   const [searchParams] = useSearchParams()
@@ -25,38 +25,40 @@ function JobsList() {
         page: pageNumber
       })
   })
-  const jobs = data?.result?.jobs || [
-    {
-      _id: 'test1',
-      company: 'test',
-      job_type: JobTypeEnum.FULL_TIME,
-      location: 'test',
-      position: 'test',
-      status: JobStatusEnum.INTERVIEW,
-      created_at: new Date(),
-      updated_at: new Date()
-    },
-    {
-      _id: 'test2',
-      company: 'test',
-      job_type: JobTypeEnum.FULL_TIME,
-      location: 'test',
-      position: 'test',
-      status: JobStatusEnum.INTERVIEW,
-      created_at: new Date(),
-      updated_at: new Date()
-    },
-    {
-      _id: 'test3',
-      company: 'test',
-      job_type: JobTypeEnum.FULL_TIME,
-      location: 'test',
-      position: 'test',
-      status: JobStatusEnum.INTERVIEW,
-      created_at: new Date(),
-      updated_at: new Date()
-    }
-  ]
+  const jobs =
+    data?.result?.jobs ||
+    [
+      // {
+      //   _id: 'test1',
+      //   company: 'test',
+      //   job_type: JobTypeEnum.FULL_TIME,
+      //   location: 'test',
+      //   position: 'test',
+      //   status: JobStatusEnum.INTERVIEW,
+      //   created_at: new Date(),
+      //   updated_at: new Date()
+      // },
+      // {
+      //   _id: 'test2',
+      //   company: 'test',
+      //   job_type: JobTypeEnum.FULL_TIME,
+      //   location: 'test',
+      //   position: 'test',
+      //   status: JobStatusEnum.INTERVIEW,
+      //   created_at: new Date(),
+      //   updated_at: new Date()
+      // },
+      // {
+      //   _id: 'test3',
+      //   company: 'test',
+      //   job_type: JobTypeEnum.FULL_TIME,
+      //   location: 'test',
+      //   position: 'test',
+      //   status: JobStatusEnum.INTERVIEW,
+      //   created_at: new Date(),
+      //   updated_at: new Date()
+      // }
+    ]
   const count = data?.result?.count || 100
   const page = data?.result?.page || 2
   const totalPages = data?.result?.totalPages || 10

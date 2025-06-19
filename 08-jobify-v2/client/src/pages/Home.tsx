@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom'
 import Logo from '@/assets/img/logo.svg'
 import LandingImg from '@/assets/img/main.svg'
 import { Button } from '@/components/ui/button'
+import { Link } from 'react-router-dom'
 
 function Landing() {
   return (
     <main>
-      <header className="max-w-6xl mx-auto px-4 sm:px-8 py-6 ">
+      <header className="max-w-6xl mx-auto px-4 sm:px-8 py-6">
         <img src={Logo} alt="logo" />
       </header>
       <section className="max-w-6xl mx-auto px-4 sm:px-8 h-screen -mt-20 grid lg:grid-cols-[1fr,400px] items-center">

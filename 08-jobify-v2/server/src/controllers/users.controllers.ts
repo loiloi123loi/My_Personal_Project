@@ -69,3 +69,13 @@ export const verifyForgotPasswordController = (req: Request, res: Response) => {
     message: USERS_MESSAGES.VERIFY_FORGOT_PASSWORD_SUCCESS
   })
 }
+
+export const getMeController = async (req: Request, res: Response) => {
+  const { user_id } = req.decoded_authorization!
+  const result = await usersService.getMe(user_id)
+
+  res.json({
+    message: USERS_MESSAGES.GET_USER_INFO_SUCCESS,
+    result
+  })
+}

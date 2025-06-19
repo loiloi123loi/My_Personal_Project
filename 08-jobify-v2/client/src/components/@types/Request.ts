@@ -6,3 +6,8 @@ export interface IAllJobParams {
   page?: number
   limit?: number
 }
+
+export interface ILoginReqBody {
+  email: string
+  password: string
+}

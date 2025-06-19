@@ -12,7 +12,8 @@ export const USER_PATH = {
   LOGOUT: '/logout',
   RESET_PASSWORD: '/reset-password',
   FORGOT_PASSWORD: '/forgot-password',
-  VERIFY_FORGOT_PASSWORD: '/verify-forgot-password'
+  VERIFY_FORGOT_PASSWORD: '/verify-forgot-password',
+  ME: '/me'
 } as const
 
 export const JOB_PATH = {

@@ -1,11 +1,11 @@
-import cors from 'cors'
-import express from 'express'
 import createRoutes from '@/routers'
 import databaseService from '@/services/database.services'
 import { app, server } from '@/socket.io'
 import logger from '@/utils/logger'
+import cors from 'cors'
+import express from 'express'
 
-app.use(cors())
+app.use(cors({ origin: 'http://localhost:3000', credentials: true }))
 app.use(express.json())
 createRoutes(app)
 

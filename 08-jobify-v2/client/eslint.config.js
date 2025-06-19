@@ -1,6 +1,5 @@
 import js from '@eslint/js'
 import eslintPluginPrettier from 'eslint-plugin-prettier'
-import eslintPluginImport from 'eslint-plugin-import'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import globals from 'globals'
@@ -12,17 +11,19 @@ export default tseslint.config(
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 'latest',
+      parser: tseslint.parser,
       globals: globals.browser
     },
     plugins: {
+      '@typescript-eslint': tseslint.plugin,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
-      prettier: eslintPluginPrettier,
-      import: eslintPluginImport
+      prettier: eslintPluginPrettier
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      'react-hooks/exhaustive-deps': 'warn',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'prettier/prettier': [
@@ -37,17 +38,6 @@ export default tseslint.config(
           singleQuote: true,
           printWidth: 120,
           jsxSingleQuote: false
-        }
-      ],
-      'import/order': [
-        'error',
-        {
-          groups: ['builtin', 'external', 'internal', ['parent', 'sibling']],
-          'newlines-between': 'never',
-          alphabetize: {
-            order: 'asc',
-            caseInsensitive: true
-          }
         }
       ]
     }

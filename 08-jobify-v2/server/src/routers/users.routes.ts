@@ -1,6 +1,7 @@
 import { USER_PATH } from '@/constants/path'
 import {
   forgotPasswordController,
+  getMeController,
   loginController,
   logoutController,
   registerController,
@@ -30,5 +31,6 @@ usersRouter.route(USER_PATH.FORGOT_PASSWORD).post(forgotPasswordValidator, wrapR
 usersRouter
   .route(USER_PATH.VERIFY_FORGOT_PASSWORD)
   .post(verifyForgotPasswordValidator, wrapRequestHandler(verifyForgotPasswordController))
+usersRouter.route(USER_PATH.ME).get(accessTokenValidator, wrapRequestHandler(getMeController))
 
 export default usersRouter

@@ -3,7 +3,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 
 export const StatsLoadingCard = () => {
   return (
-    <Card className="w-[330px] h-[88px]">
+    <Card className="flex flex-row">
       <CardHeader className="flex flex-row justify-between items-center">
         <div className="flex items-center space-x-4">
           <Skeleton className="h-12 w-12 rounded-full" />
