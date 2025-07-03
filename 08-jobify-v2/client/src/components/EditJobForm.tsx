@@ -1,14 +1,16 @@
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
 import { getSingleJob, updateJob } from '@/api/job'
 import { CustomFormField, CustomFormSelect } from '@/components/FormComponents'
 import { Button } from '@/components/ui/button'
 import { Form } from '@/components/ui/form'
-import { JobStatusEnum, JobTypeEnum } from '@/utils/enums'
-import { createAndEditJobSchema, CreateAndEditJobType } from '@/utils/types'
+import { JobStatusEnum, JobStatusList, JobTypeEnum, JobTypeList } from '@/utils/enums'
+import { createAndEditJobSchema } from '@/utils/schemas'
+import { CreateAndEditJobType } from '@/utils/types'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useEffect } from 'react'
+import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 interface IEditJobFormProps {
   jobId: string
@@ -17,7 +19,7 @@ interface IEditJobFormProps {
 const EditJobForm = ({ jobId }: IEditJobFormProps) => {
   const queryClient = useQueryClient()
   const navigate = useNavigate()
-  const { data } = useQuery<CreateAndEditJobType>({
+  const { data } = useQuery<{ result: { job: CreateAndEditJobType } }>({
     queryKey: ['job', jobId],
     queryFn: () => getSingleJob(jobId)
   })
@@ -30,7 +32,6 @@ const EditJobForm = ({ jobId }: IEditJobFormProps) => {
       }
       toast.success('Update job success')
       queryClient.invalidateQueries({ queryKey: ['jobs'] })
-      queryClient.invalidateQueries({ queryKey: ['job', jobId] })
       queryClient.invalidateQueries({ queryKey: ['stats'] })
       navigate('/jobs')
     }
@@ -38,16 +39,31 @@ const EditJobForm = ({ jobId }: IEditJobFormProps) => {
   const form = useForm<CreateAndEditJobType>({
     resolver: zodResolver(createAndEditJobSchema),
     defaultValues: {
-      position: data?.position || '',
-      company: data?.company || '',
-      location: data?.location || '',
-      status: (data?.status as JobStatusEnum) || JobStatusEnum.PENDING,
-      job_type: (data?.job_type as JobTypeEnum) || JobTypeEnum.FULL_TIME
+      position: '',
+      company: '',
+      job_location: '',
+      status: JobStatusEnum.PENDING,
+      job_type: JobTypeEnum.FULL_TIME
     }
   })
+
   const onSubmit = async (values: CreateAndEditJobType) => {
     await mutateAsync(values)
   }
+
+  useEffect(() => {
+    if (data) {
+      form.reset({
+        position: data.result.job.position,
+        company: data.result.job.company,
+        job_location: data.result.job.job_location,
+        status: data.result.job.status as JobStatusEnum,
+        job_type: data.result.job.job_type as JobTypeEnum
+      })
+    }
+  }, [data, form])
+
+  console.log(form.watch('status'))
 
   return (
     <Form {...form}>
@@ -56,19 +72,9 @@ const EditJobForm = ({ jobId }: IEditJobFormProps) => {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 items-start">
           <CustomFormField name="position" control={form.control} />
           <CustomFormField name="company" control={form.control} />
-          <CustomFormField name="location" control={form.control} />
-          <CustomFormSelect
-            name="status"
-            control={form.control}
-            labelText="job status"
-            items={Object.values(JobStatusEnum)}
-          />
-          <CustomFormSelect
-            name="job_type"
-            control={form.control}
-            labelText="job type"
-            items={Object.values(JobTypeEnum)}
-          />
+          <CustomFormField labelText="job location" name="job_location" control={form.control} />
+          <CustomFormSelect name="status" control={form.control} labelText="job status" items={JobStatusList} />
+          <CustomFormSelect name="job_type" control={form.control} labelText="job type" items={JobTypeList} />
           <Button type="submit" className="self-end capitalize" disabled={isLoading}>
             {isLoading ? 'updating...' : 'edit job'}
           </Button>

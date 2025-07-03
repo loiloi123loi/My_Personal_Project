@@ -1,4 +1,5 @@
 import ErrorBoundary from '@/components/ErrorBoundary'
+import { AuthProvider } from '@/contexts/AuthContext'
 import LoadingContextProvider from '@/contexts/LoadingContext'
 import ThemeProvider from '@/contexts/ThemeContext'
 import useRouteElements from '@/routes/useRouteElement'
@@ -7,7 +8,6 @@ import { useState } from 'react'
 import { HelmetProvider } from 'react-helmet-async'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { AuthProvider } from './contexts/AuthContext'
 
 function App() {
   console.log('render')
@@ -17,7 +17,8 @@ function App() {
       new QueryClient({
         defaultOptions: {
           queries: {
-            staleTime: 60 * 1000 * 5
+            staleTime: 60 * 1000 * 5,
+            retry: 0
           }
         }
       })

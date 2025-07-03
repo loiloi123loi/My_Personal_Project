@@ -1,14 +1,15 @@
+import { addJob } from '@/api/job'
+import { CustomFormField, CustomFormSelect } from '@/components/FormComponents'
+import { Button } from '@/components/ui/button'
+import { Form } from '@/components/ui/form'
+import { JobStatusEnum, JobStatusList, JobTypeEnum, JobTypeList } from '@/utils/enums'
+import { createAndEditJobSchema } from '@/utils/schemas'
+import { CreateAndEditJobType } from '@/utils/types'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { addJob } from '@/api/job'
-import { CustomFormField, CustomFormSelect } from '@/components/FormComponents'
-import { Button } from '@/components/ui/button'
-import { Form } from '@/components/ui/form'
-import { JobStatusEnum, JobTypeEnum } from '@/utils/enums'
-import { createAndEditJobSchema, CreateAndEditJobType } from '@/utils/types'
 
 function AddJob() {
   const query = useQueryClient()
@@ -43,18 +44,8 @@ function AddJob() {
           <CustomFormField name="position" control={form.control} />
           <CustomFormField name="company" control={form.control} />
           <CustomFormField name="location" control={form.control} />
-          <CustomFormSelect
-            name="status"
-            control={form.control}
-            labelText="job status"
-            items={Object.values(JobStatusEnum)}
-          />
-          <CustomFormSelect
-            name="job_type"
-            control={form.control}
-            labelText="job type"
-            items={Object.values(JobTypeEnum)}
-          />
+          <CustomFormSelect name="status" control={form.control} labelText="job status" items={JobStatusList} />
+          <CustomFormSelect name="job_type" control={form.control} labelText="job type" items={JobTypeList} />
           <Button type="submit" className="self-end capitalize">
             create job
           </Button>

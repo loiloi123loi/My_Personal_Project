@@ -1,12 +1,10 @@
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
 
 const customFetch = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_URL + import.meta.env.VITE_API_VERSION,
   withCredentials: true
 })
 
-// Attach Content-Type + credentials
 customFetch.interceptors.request.use((config) => {
   config.headers['Content-Type'] = 'application/json'
   config.withCredentials = true
@@ -79,8 +77,7 @@ customFetch.interceptors.response.use(
         processQueue(err, null)
         localStorage.removeItem('accessToken')
         localStorage.removeItem('refreshToken')
-        const navigate = useNavigate()
-        navigate('/login')
+        window.location.href = '/login'
         return Promise.reject(err)
       } finally {
         isRefreshing = false

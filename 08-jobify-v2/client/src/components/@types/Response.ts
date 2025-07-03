@@ -1,24 +1,31 @@
 import { JobType } from '@/utils/types'
 
-export interface GetAllJobsResponse {
-  result: {
-    jobs: JobType[]
-    count: number
-    page: number
-    totalPages: number
-  }
+type IBaseResponse<T> = {
+  message: string
+  result: T
 }
 
-export interface GetStatsResponse {
-  result: {
-    pending: number
-    interview: number
-    declined: number
-  }
+type TPagingResponse = {
+  totalCount: number
+  totalPages: number
+  page: number | string
+  pageSize: number | string
 }
 
-export interface GetChartsDataResponse {
-  result: {
-    data: number[]
-  }
+type JobListResult = {
+  jobs: JobType[]
+} & TPagingResponse
+
+type StatsResult = {
+  pending: number
+  interview: number
+  declined: number
 }
+
+type ChartsResult = {
+  data: number[]
+}
+
+export type GetAllJobsResponse = IBaseResponse<JobListResult>
+export type GetStatsResponse = IBaseResponse<StatsResult>
+export type GetChartsDataResponse = IBaseResponse<ChartsResult>

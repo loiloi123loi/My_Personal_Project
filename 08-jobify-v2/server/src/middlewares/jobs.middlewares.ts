@@ -3,7 +3,7 @@ import { JOBS_MESSAGES } from '@/constants/messages'
 import { validate } from '@/utils/validation'
 import { checkSchema } from 'express-validator'
 
-export const createJobMMiddleware = validate(
+export const createJobValidator = validate(
   checkSchema(
     {
       company: {
@@ -103,5 +103,50 @@ export const updateJobValidator = validate(
       }
     },
     ['body']
+  )
+)
+
+export const getAllJobsValidator = validate(
+  checkSchema(
+    {
+      search: {
+        optional: true,
+        isString: {
+          errorMessage: JOBS_MESSAGES.SEARCH_MUST_BE_A_STRING
+        },
+        trim: true
+      },
+      status: {
+        optional: true,
+        isIn: {
+          options: [Object.values(JobStatus)]
+        },
+        errorMessage: JOBS_MESSAGES.STATUS_MUST_BE_ONE_OF + Object.values(JobStatus).join(', ')
+      },
+      type: {
+        optional: true,
+        isIn: {
+          options: [Object.values(JobType)]
+        },
+        errorMessage: JOBS_MESSAGES.TYPE_MUST_BE_ONE_OF + Object.values(JobType).join(', ')
+      },
+      created_date: {
+        optional: true,
+        isObject: {
+          errorMessage: JOBS_MESSAGES.CREATED_DATE_MUST_BE_AN_OBJECT
+        },
+        custom: {
+          options: (value) => {
+            if (value.startDate && value.endDate) {
+              if (new Date(value.startDate) > new Date(value.endDate)) {
+                throw new Error(JOBS_MESSAGES.CREATED_DATE_RANGE_INVALID)
+              }
+            }
+            return true
+          }
+        }
+      }
+    },
+    ['query']
   )
 )

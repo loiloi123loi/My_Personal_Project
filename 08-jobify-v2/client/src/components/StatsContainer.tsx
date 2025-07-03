@@ -1,12 +1,12 @@
-import { useQuery } from '@tanstack/react-query'
-import { GetStatsResponse } from './@types/Response'
-import StatsCard, { StatsLoadingCard } from './StatsCard'
 import { getStats } from '@/api/job'
+import { GetStatsResponse } from '@/components/@types/Response'
+import StatsCard, { StatsLoadingCard } from '@/components/StatsCard'
+import { useQuery } from '@tanstack/react-query'
 
 const StatsContainer = () => {
   const { data, isFetching } = useQuery<GetStatsResponse>({
     queryKey: ['stats'],
-    queryFn: () => getStats()
+    queryFn: getStats
   })
 
   if (isFetching) {

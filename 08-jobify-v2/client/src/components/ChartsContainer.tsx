@@ -1,7 +1,7 @@
 import { getChartsData } from '@/api/job'
+import { GetChartsDataResponse } from '@/components/@types/Response'
 import { useQuery } from '@tanstack/react-query'
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
-import { GetChartsDataResponse } from './@types/Response'
 
 const ChartsContainer = () => {
   const { data, isFetching } = useQuery<GetChartsDataResponse>({

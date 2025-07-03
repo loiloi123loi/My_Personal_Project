@@ -19,3 +19,17 @@ export interface UpdateJobReqBody {
   job_type: JobType
   job_location?: string
 }
+
+export interface PagingQuery {
+  page?: number
+  limit?: number
+  sortBy?: string
+  orderBy?: 'asc' | 'desc'
+}
+
+export interface GetAllJobsReqQuery extends PagingQuery {
+  search?: string
+  date?: string
+  status?: JobStatus
+  job_type?: JobType
+}

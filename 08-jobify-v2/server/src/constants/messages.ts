@@ -59,9 +59,19 @@ export const JOBS_MESSAGES = {
   DELETE_JOB_SUCCESS: 'Delete job success',
   JOB_NOT_FOUND: 'Job not found',
   GET_SINGLE_JOB_SUCCESS: 'Get single job success',
-  UPDATE_JOB_SUCCESS: 'Update job success'
+  UPDATE_JOB_SUCCESS: 'Update job success',
+  SEARCH_MUST_BE_A_STRING: 'Search must be a string',
+  CREATED_DATE_MUST_BE_AN_OBJECT: 'Created date must be an object',
+  CREATED_DATE_RANGE_INVALID: 'Created date range invalid'
 } as const
 
 export const CHATS_MESSAGES = {
   GET_ALL_CONVERSATIONS_SUCCESS: 'Get all conversations success'
+} as const
+
+export const COMMONS_MESSAGES = {
+  PAGE_MUST_BE_INTEGER_AND_NON_NEGATIVE: 'Page must be integer and non-negative',
+  LIMIT_MUST_BE_INTEGER_AND_NON_NEGATIVE: 'Limit must be integer and non-negative',
+  SORT_BY_MUST_BE_STRING: 'Sort by must be string',
+  ORDER_BY_MUST_BE_ASC_OR_DESC: 'Order by must be asc or desc'
 } as const

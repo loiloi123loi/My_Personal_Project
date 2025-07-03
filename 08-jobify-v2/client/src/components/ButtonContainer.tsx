@@ -1,7 +1,7 @@
+import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useCallback, useMemo } from 'react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
-import { Button } from './ui/button'
 
 interface IButtonContainerProps {
   currentPage: number

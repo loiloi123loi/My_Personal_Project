@@ -6,7 +6,13 @@ import {
   getSingleJobController,
   updateJobController
 } from '@/controllers/jobs.controllers'
-import { createJobMMiddleware, jobIdValidator, updateJobValidator } from '@/middlewares/jobs.middlewares'
+import { pagingValidator } from '@/middlewares/commons.middlewares'
+import {
+  createJobValidator,
+  getAllJobsValidator,
+  jobIdValidator,
+  updateJobValidator
+} from '@/middlewares/jobs.middlewares'
 import { accessTokenValidator } from '@/middlewares/users.middlewares'
 import { wrapRequestHandler } from '@/utils/handlers'
 import { Router } from 'express'
@@ -14,8 +20,8 @@ const jobsRouter = Router()
 
 jobsRouter
   .route(JOB_PATH.GET_ALL_JOBS)
-  .get(accessTokenValidator, wrapRequestHandler(getAllJobsController))
-  .post(accessTokenValidator, createJobMMiddleware, wrapRequestHandler(createJobController))
+  .get(accessTokenValidator, getAllJobsValidator, pagingValidator, wrapRequestHandler(getAllJobsController))
+  .post(accessTokenValidator, createJobValidator, wrapRequestHandler(createJobController))
 jobsRouter
   .route(JOB_PATH.DELETE_JOB)
   .delete(accessTokenValidator, jobIdValidator, wrapRequestHandler(deleteJobController))
