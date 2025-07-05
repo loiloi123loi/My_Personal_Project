@@ -142,7 +142,7 @@ interface DateRangePickerProps {
   placeholder?: string
 }
 
-const dateFormat = 'dd/MM/yyyy'
+export const dateFormat = 'dd/MM/yyyy'
 
 export function DateRangePicker({ name, control, label, placeholder }: DateRangePickerProps) {
   const [open, setOpen] = useState(false)
@@ -200,6 +200,16 @@ export function DateRangePicker({ name, control, label, placeholder }: DateRange
                           )}`
                         : placeholder || `${dateFormat} ~ ${dateFormat}`}
                     </span>
+                    {(value.startDate || value.endDate) && (
+                      <button
+                        type="button"
+                        className="absolute right-1 top-1/2 -translate-y-1/2 rounded"
+                        onClick={() => field.onChange({ startDate: '', endDate: '' })}
+                        tabIndex={-1}
+                      >
+                        <div className="w-4 h-4 text-gray-400">x</div>
+                      </button>
+                    )}
                   </Button>
                 }
                 monthsShown={1}

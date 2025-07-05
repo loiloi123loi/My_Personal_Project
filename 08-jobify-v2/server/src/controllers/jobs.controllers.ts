@@ -64,3 +64,33 @@ export const updateJobController = async (req: Request<JobIdReqParams, unknown, 
     result
   })
 }
+
+export const getStatsController = async (req: Request, res: Response) => {
+  const { user_id } = req.decoded_authorization as TokenPayload
+  const result = await jobService.getStats(user_id)
+
+  res.status(HTTP_STATUS.OK).json({
+    message: JOBS_MESSAGES.GET_STATS_SUCCESS,
+    result
+  })
+}
+
+export const getChartsController = async (req: Request, res: Response) => {
+  const { user_id } = req.decoded_authorization as TokenPayload
+  const result = await jobService.getCharts(user_id)
+
+  res.status(HTTP_STATUS.OK).json({
+    message: JOBS_MESSAGES.GET_CHARTS_SUCCESS,
+    result
+  })
+}
+
+export const generateDataController = async (req: Request, res: Response) => {
+  const { user_id } = req.decoded_authorization as TokenPayload
+  const result = await jobService.generateData(user_id)
+
+  res.status(HTTP_STATUS.OK).json({
+    message: JOBS_MESSAGES.GENERATE_DATA_SUCCESS,
+    result
+  })
+}

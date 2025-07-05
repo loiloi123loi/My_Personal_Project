@@ -1,3 +1,4 @@
+import { DateRangePicker } from '@/components/DateRangePicker'
 import { CustomFormField, CustomFormSelect } from '@/components/FormComponents'
 import { Button } from '@/components/ui/button'
 import { Form } from '@/components/ui/form'
@@ -7,7 +8,6 @@ import { SearchFormType } from '@/utils/types'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
-import { DateRangePicker } from './DateRangePicker'
 
 function SearchForm() {
   const [searchParams] = useSearchParams()
@@ -64,7 +64,7 @@ function SearchForm() {
           labelText="Job Type"
           items={[{ label: 'All', value: 'all' }, ...JobTypeList]}
         />
-        <DateRangePicker name="created_at" control={form.control} />
+        <DateRangePicker name="created_at" label="Created At" control={form.control} />
         <Button type="submit" className="capitalize self-end">
           Search
         </Button>

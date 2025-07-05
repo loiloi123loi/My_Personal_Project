@@ -32,4 +32,8 @@ export interface GetAllJobsReqQuery extends PagingQuery {
   date?: string
   status?: JobStatus
   job_type?: JobType
+  created_at?: {
+    startDate?: string
+    endDate?: string
+  }
 }

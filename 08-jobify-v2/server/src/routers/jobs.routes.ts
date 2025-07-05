@@ -2,8 +2,11 @@ import { JOB_PATH } from '@/constants/path'
 import {
   createJobController,
   deleteJobController,
+  generateDataController,
   getAllJobsController,
+  getChartsController,
   getSingleJobController,
+  getStatsController,
   updateJobController
 } from '@/controllers/jobs.controllers'
 import { pagingValidator } from '@/middlewares/commons.middlewares'
@@ -18,18 +21,20 @@ import { wrapRequestHandler } from '@/utils/handlers'
 import { Router } from 'express'
 const jobsRouter = Router()
 
+jobsRouter.use(accessTokenValidator)
 jobsRouter
   .route(JOB_PATH.GET_ALL_JOBS)
-  .get(accessTokenValidator, getAllJobsValidator, pagingValidator, wrapRequestHandler(getAllJobsController))
-  .post(accessTokenValidator, createJobValidator, wrapRequestHandler(createJobController))
+  .get(getAllJobsValidator, pagingValidator, wrapRequestHandler(getAllJobsController))
+  .post(createJobValidator, wrapRequestHandler(createJobController))
+jobsRouter.route(JOB_PATH.STATS).get(wrapRequestHandler(getStatsController))
 jobsRouter
-  .route(JOB_PATH.DELETE_JOB)
-  .delete(accessTokenValidator, jobIdValidator, wrapRequestHandler(deleteJobController))
+  .route(JOB_PATH.CHARTS)
+  .get(wrapRequestHandler(getChartsController))
+  .post(wrapRequestHandler(generateDataController))
 jobsRouter
-  .route(JOB_PATH.GET_SINGLE_JOB)
-  .get(accessTokenValidator, jobIdValidator, wrapRequestHandler(getSingleJobController))
-jobsRouter
-  .route(JOB_PATH.UPDATE_JOB)
-  .patch(accessTokenValidator, jobIdValidator, updateJobValidator, wrapRequestHandler(updateJobController))
+  .route(JOB_PATH.ID_JOB)
+  .delete(jobIdValidator, wrapRequestHandler(deleteJobController))
+  .get(jobIdValidator, wrapRequestHandler(getSingleJobController))
+  .patch(jobIdValidator, updateJobValidator, wrapRequestHandler(updateJobController))
 
 export default jobsRouter

@@ -1,6 +1,7 @@
 import { IAllJobParams } from '@/components/@types/Request'
 import customFetch from '@/utils/axios'
 import { CreateAndEditJobType } from '@/utils/types'
+import qs from 'qs'
 
 export const addJob = async (job: CreateAndEditJobType) => {
   const { data } = await customFetch.post('/jobs', job)
@@ -8,13 +9,8 @@ export const addJob = async (job: CreateAndEditJobType) => {
 }
 
 export const getAllJobs = async (params: IAllJobParams) => {
-  const searchParams = new URLSearchParams()
-  Object.entries(params).forEach(([key, value]) => {
-    if (value !== undefined && value !== null) {
-      searchParams.append(key, String(value))
-    }
-  })
-  const { data } = await customFetch.get(`/jobs?${searchParams}`)
+  const queryString = qs.stringify(params, { encode: true })
+  const { data } = await customFetch.get(`/jobs?${queryString}`)
   return data
 }
 

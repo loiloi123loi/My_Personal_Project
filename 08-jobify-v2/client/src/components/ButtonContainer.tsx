@@ -19,8 +19,10 @@ const ButtonContainer = ({ currentPage, totalPages }: IButtonContainerProps) => 
   const handlePageChange = useCallback(
     (page: number) => {
       const defaultParams = {
+        ...searchParams,
         search: searchParams.get('search') || '',
         status: searchParams.get('status') || 'all',
+        limit: searchParams.get('limit') || '10',
         page: String(page)
       }
       const params = new URLSearchParams(defaultParams)

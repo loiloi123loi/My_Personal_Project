@@ -62,7 +62,10 @@ export const JOBS_MESSAGES = {
   UPDATE_JOB_SUCCESS: 'Update job success',
   SEARCH_MUST_BE_A_STRING: 'Search must be a string',
   CREATED_DATE_MUST_BE_AN_OBJECT: 'Created date must be an object',
-  CREATED_DATE_RANGE_INVALID: 'Created date range invalid'
+  CREATED_DATE_RANGE_INVALID: 'Created date range invalid',
+  GET_STATS_SUCCESS: 'Get stats success',
+  GET_CHARTS_SUCCESS: 'Get charts success',
+  GENERATE_DATA_SUCCESS: 'Generate data success'
 } as const
 
 export const CHATS_MESSAGES = {

@@ -137,6 +137,8 @@ export const getAllJobsValidator = validate(
         },
         custom: {
           options: (value) => {
+            console.log(value.startDate)
+
             if (value.startDate && value.endDate) {
               if (new Date(value.startDate) > new Date(value.endDate)) {
                 throw new Error(JOBS_MESSAGES.CREATED_DATE_RANGE_INVALID)
